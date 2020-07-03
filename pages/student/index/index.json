@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#f3f5f5",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "学生个人中心",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light",
+  "usingComponents": {}
+}

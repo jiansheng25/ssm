@@ -1,0 +1,56 @@
+<!--pages/student/index/index.wxml-->
+<view id="main">
+  <view id="main1">  
+    <view class="main1-line1">
+    </view>
+    <view class="main1-line2">
+      <view class="main1-img"><image src="{{url}}" style="height:130rpx;width:130rpx;border-radius: 50%" bindtap="gotoShow"></image></view>
+    </view>
+    <view class="main1-btn">
+      <button class="main1-btn-stye">{{stu.stuName}}</button>
+    </view>
+  </view>
+  <view id="main2">  
+    <view class="main-line2-item">
+       <view class="main-line2-item-1">
+      <image src="../../../img/d.png" style="width: 70rpx;height: 70rpx;" bindtap="gotoWaiting"></image><text>\n</text>待处理
+        </view>
+        <view class="main-line2-item-1">
+        <image src="../../../img/dddd.png" style="width: 70rpx;height: 70rpx;" bindtap="gotoRejected"></image><text>\n</text>被拒绝
+        </view>
+        <view class="main-line2-item-1">
+        <image src="../../../img/dd.png" style="width: 70rpx;height: 70rpx;" bindtap="gotoAccepted"></image><text>\n</text>已录用
+        </view>
+    </view>
+   
+  </view>
+  <view id="main3">  
+      <view class="main3-item">
+       <button class="main3-item-btn" bindtap="gotoStuInfo">1.个人信息</button>
+      </view>
+      <view class="main3-item-line">
+      </view>
+       <view class="main3-item">
+        <button class="main3-item-btn" bindtap="gotoResume">2.我的简历</button>
+        </view>
+       <view class="main3-item-line">
+      </view>
+        <view class="main3-item">
+        <button class="main3-item-btn"><navigator url="../myPerfer/myPerfer">3.收藏</navigator> </button>
+        </view>
+       <view class="main3-item-line">
+      </view>
+       <view class="main3-item">
+        <button class="main3-item-btn"><navigator url="../changePwd/changePwd?openid={{ open_id}}">4.密码管理</navigator> </button>
+        </view>
+       <view class="main3-item-line">
+      </view>
+        <view class="main3-item">
+        <button class="main3-item-btn"><navigator url="../contactUs/contactUs"> 5.联系管理员</navigator></button>
+        </view>
+      
+       <view class="main3-item-line">
+      </view>
+  </view>
+</view>
+

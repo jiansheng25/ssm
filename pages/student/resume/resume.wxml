@@ -1,0 +1,109 @@
+<!--pages/student/resume/resume.wxml-->
+<view class="main">
+    <view class="stuBox">
+        <view class="stuinfo">
+              <view class="stuinfo-1">
+                  <view class="stuinfo-11">{{stu.stuName}}</view>
+                   <view class="stuinfo-12">{{stu.gender}}-{{age}}-{{stu.address}}</view>
+              </view>
+              <view class="stuinfo-2"><image class="stuinfo-2-img" src="{{imgUrl}}" bindtap="gotoShow"></image></view>
+        </view>
+    </view>
+ <view class="stuBox"> 
+    <view class="pm">
+        <view class="phem"><text style="color:red">*</text>电话：<text style="font-size:25rpx">\n{{stu.phone}}</text>
+        </view>
+        <view class="phem"><text style="color:red">*</text>邮箱：<text style="font-size:25rpx">\n{{stu.email}}</text>
+        </view>
+    </view>
+  </view>     
+
+ 
+
+  <view class="stuBox">
+      <view class="tite">
+          <view class="tite1"><text style="color:red"></text>教育经历</view>
+           <view class="tite2"><button bindtap="gotoEdu" class="tite-btn" style="width: 75rpx;text-align:right">添加</button></view>
+      </view>
+     <view class="contxt" wx:for="{{stu.stuEduXps}}">
+        <view class="contxt1"><navigator url="editEduTrue/editEditTrue?eduId={{item.eduId}}"> {{item.schoolName}}</navigator></view>
+          <view class="contxt2"><navigator url="editEduTrue/editEditTrue?eduId={{item.eduId}}">{{item.time}}</navigator></view>
+          <view class="contxt3"><navigator url="editEduTrue/editEditTrue?eduId={{item.eduId}}">{{item.majors}}-{{item.diploma}}</navigator>
+         
+          </view>
+     </view>
+  </view>
+
+
+   <view class="stuBox">
+      <view class="tite">
+          <view class="tite1"><text style="color:red"></text>实习经历</view>
+           <view class="tite2"><button bindtap="gotoInts" class="tite-btn" style="width: 75rpx;text-align:right">添加</button></view>
+      </view>
+       <view class="contxt" wx:for="{{stu.stuItershipXps}}">
+        <view class="contxt1"><navigator url="editInts/editInts?intsId={{item.intsId}}"> {{item.ints_company}}</navigator></view>
+          <view class="contxt2"><navigator url="editInts/editInts?intsId={{item.intsId}}"> {{item.ints_time}}</navigator></view>
+          <view class="contxt3" style="font-weight: 600"><navigator url="editInts/editInts?intsId={{item.intsId}}"> {{item.ints_postion}}</navigator></view>
+           <view class="contxt3"><navigator url="editInts/editInts?intsId={{item.intsId}}"> {{item.ints_detail}}</navigator></view>
+     </view>
+  </view>
+
+  <view class="stuBox">
+      <view class="tite">
+          <view class="tite1"><text style="color:red"></text>项目经历</view>
+           <view class="tite2"><button bindtap="gotoPro" class="tite-btn" style="width: 75rpx;text-align:right">添加</button></view>
+      </view>
+       <view class="contxt" wx:for="{{stu.stuProjectXps}}">
+        <view class="contxt1"><navigator url="editPro/editPro?proId={{item.proId}}"> {{item.pro_name}}</navigator></view>
+          <view class="contxt2"><navigator url="editPro/editPro?proId={{item.proId}}"> {{item.pro_time}}</navigator></view>
+          <view class="contxt3"><navigator url="editPro/editPro?proId={{item.proId}}"> {{item.pro_des}}</navigator></view>
+     </view>
+  </view>
+
+<view class="stuBox">
+      <view class="tite">
+          <view class="tite1"><text style="color:red"></text>校园经历</view>
+           <view class="tite2"><button bindtap="gotoSc" class="tite-btn" style="width: 75rpx;text-align:right">添加</button></view>
+      </view>
+       <view class="contxt" wx:for="{{stu.stuSchoolXps}}">
+        <view class="contxt1"><navigator url="editSchoolXp/editSchoolXp?school_xpId={{item.school_xpId}}"> {{item.xp_name}}</navigator></view>
+          <view class="contxt2"><navigator url="editSchoolXp/editSchoolXp?school_xpId={{item.school_xpId}}">{{item.xp_time}}</navigator></view>
+          <view class="contxt3"><navigator url="editSchoolXp/editSchoolXp?school_xpId={{item.school_xpId}}">{{item.xp_des}}</navigator></view>
+     </view>
+</view>
+
+ <view class="stuBox">
+      <view class="tite">
+     
+          <view class="tite1"><text style="color:red"></text>专业技能</view>
+           <view class="tite2"></view>
+      </view>
+      <view class="text">
+          <!-- <textarea class="text-1">{{stu[0].skil}}</textarea> -->
+           <label class="text-1" bindtap="gotoSkil">{{stu.skil}}</label>
+      </view>
+  </view>
+
+
+<view class="stuBox">
+      <view class="tite">
+          <view class="tite1"><text style="color:red"></text>所得证书</view>
+           <view class="tite2"></view>
+              <view class="text">
+          <!-- <textarea class="text-1">{{stu[0].zhegnshu}}</textarea> -->
+          <label class="text-1" bindtap="gotoZhengshu">{{stu.zhengshu}}</label>
+      </view>
+      </view>
+  </view>
+
+<view class="stuBox">
+      <view class="tite">
+          <view class="tite1"><text style="color:red"></text>自我评价</view>
+           <view class="tite2"></view>
+      </view>
+         <view class="text">
+          
+          <label class="text-1" bindtap="gotoSelfDes">{{stu.selfDes}}</label>
+      </view>
+  </view>
+</view>

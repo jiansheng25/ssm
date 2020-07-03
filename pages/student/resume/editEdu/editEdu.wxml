@@ -1,0 +1,61 @@
+<!--pages/student/resume/editEdu/editEdu.wxml-->
+<form bindsubmit="submitStu">
+<view class="main1">
+  
+    <view class="main1-item1">教育经历</view>
+
+     <view class="main1-item2">
+        <view class="main1-item2-1">*学校名称:</view>
+         <view class="main1-item2-2"><input class="main1-item2-input" type="text" placeholder="输入学校名称" value="{{stu_edu_xp[0].stuName}}" name="schoolName"></input></view>
+      </view>
+     <view class="main1-line"></view>
+
+       <view class="main1-item2">
+        <view class="main1-item2-1">*就读时间:</view>
+         <view class="main1-item2-2">
+          <view class="main1-item2-2-1"> <picker class="main1-item2-picker" bindchange="getdate" value="{{dateIndex}}" range="{{date}}"> 
+                <text decode="{{true}}">&nbsp;&nbsp;</text> {{date[dateIndex]}}年
+                    </picker></view>
+         <!-- <input class="main1-item2-input" type="text" placeholder="输入就读时间" value="{{stu_edu_xp[0].time}}" name="time"></input> -->
+        <view class="main1-item2-2-1"><picker class="main1-item2-picker" bindchange="getmonth" value="{{monthIndex}}" range="{{month}}"> 
+                 {{month[monthIndex]}}月<text decode="{{true}}">&nbsp;至&nbsp;</text>
+                    </picker></view>
+           <view class="main1-item2-2-1"> <picker class="main1-item2-picker" bindchange="getdate2" value="{{date2Index}}" range="{{date2}}"> 
+                 {{date2[date2Index]}}年
+                    </picker></view>
+             <view class="main1-item2-2-1"><picker class="main1-item2-picker" bindchange="getmonth2" value="{{month2Index}}" range="{{month2}}"> 
+                 {{month2[month2Index]}}月
+                    </picker></view>
+         </view>
+      </view>
+     <view class="main1-line"></view>
+
+       <view class="main1-item2">
+        <view class="main1-item2-1">*相关专业:</view>
+         <view class="main1-item2-2"><input class="main1-item2-input" type="text" placeholder="输入相关专业" value="{{stu_edu_xp[0].majors}}" name="majors"></input></view>
+      </view>
+     <view class="main1-line"></view>
+
+       <view class="main1-item2">
+        <view class="main1-item2-1">*相关学历:</view>
+         <view class="main1-item2-2">
+         <!-- <input class="main1-item2-input" type="text" placeholder="相关学历" value="{{stu_edu_xp[0].diploma}}"              name="diploma"></input> -->
+             <picker class="main1-item2-input" bindchange="getdiploma" value="{{diplomaIndex}}" range="{{diploma}}"> 
+                 {{diploma[diplomaIndex]}}
+                    </picker>
+         </view>
+      </view>
+     <view class="main1-line"></view>
+
+       <view class="main1-item2" style="height:auto">
+        <view class="main1-item2-1" style="width:100%">经历描述:</view>
+          <textarea class="main1-item2-textarea" name="des" value="{{stu_edu_xp[0].des}}"></textarea>
+      </view>
+     <view class="main1-line"></view>
+</view>
+
+
+
+<view class="main-line"></view>
+    <view class="main2"><button formType="submit" type='primary' style="width:100%;background-color: #4565f5;">保存</button></view>
+</form>

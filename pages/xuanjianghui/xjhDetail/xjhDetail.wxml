@@ -1,0 +1,50 @@
+<!--pages/xuanjianghui/xjhDetail/xjhDetail.wxml-->
+<view class="topline"></view>
+
+<view class="top">
+    <view class="com-top">
+    {{xjh[0].name}}
+    </view>
+    <view class="com-huizong">
+        <view class="com-huizong-item">
+            <view class="item-left"> <label style="font-weight: 600">宣讲地点:</label> {{xjh.location}}</view>
+            <view class="item-right"><label style="font-weight: 600">宣讲时间:</label>{{xjh.time1}}</view>
+        </view>
+         <!-- <label style="font-weight: 600"> </label> -->
+         <view class="com-huizong-item">
+            <view class="item-left"><label style="font-weight: 600">企业性质:</label>{{xjh.xingzhi}}</view>
+            <view class="item-right"><label style="font-weight: 600"> 企业类型:</label>{{xjh.companyType}}</view>
+        </view>
+         <view class="com-huizong-item">
+            <view class="item-left"><label style="font-weight: 600"> 企业规模:</label>{{xjh.renshu}}</view>
+            <view class="item-right"><label style="font-weight: 600"> 邮箱:</label>{{xjh.email}}</view>
+        </view>
+         <view class="com-huizong-item">
+            <view class="item-left" style="width:100%"><label style="font-weight: 600">企业地址: </label>{{xjh.adress}}</view>
+        </view>
+        <view class="com-huizong-item">
+            <view class="item-left" style="width:100%"><label style="font-weight: 600">招聘流程:</label>{{xjh.process}}</view>
+        </view>
+
+    </view>
+</view>
+<view class="topline"></view>
+<view class="top">
+<!-- 专业要求 -->
+    <view class="major">
+        <view class="major-title">招聘职位：</view>
+        <view class="major-detail">{{xjh.postion}}</view>
+    </view>
+<!-- 岗位职责 -->
+ <view class="major">
+        <view class="major-title">需求专业：</view>
+        <view class="major-detail">{{xjh.majors}}</view>
+  </view>
+<!-- 福利待遇 -->
+<view class="major">
+        <view class="major-title">企业简介：</view>
+        <view class="major-detail">{{xjh.companyInfo}}</view>
+</view>
+</view>
+<view class="topline"></view>
+

@@ -1,0 +1,30 @@
+<!--pages/zhaopinhui/zpHuizong/zpHuizong.wxml-->
+<view class="topline"></view>
+
+<view class="top">
+    <view class="com-top">
+    {{zp[0].zhaoname}}
+    </view>
+    <view class="com-huizong">
+         <view class="com-huizong-item">
+            <view class="item-left" style="width:100%"> <label style="font-weight: 600">举办地点:</label> {{zp[0].location}}</view>
+        </view>
+        <view class="com-huizong-item">
+            <view class="item-left" style="width:100%"><label style="font-weight: 600">举办时间:</label>{{zp[0].time1}}</view>
+        </view>
+    </view>
+</view>
+<view class="topline"></view>
+<view class="top" >
+    <view class="top_com" wx:for="{{zp[0].companys}}">
+        <view class="com_name">{{item.companyName}}</view>
+      
+         <view class="com_item"><text decode="{{true}}" style="font-weight:900"> 招聘职位:\n</text>{{item.postions}}</view>
+           <view class="com_item"><text decode="{{true}}" style="font-weight:900"> 需求专业:\n</text>{{item.majors}}</view>
+             <view class="com_item"><text decode="{{true}}" style="font-weight:900"> 投递邮箱:{{item.email}}</text></view>
+        <view class="com_item"><text decode="{{true}}" style="font-weight:900"> 企业地址:{{item.address}}</text></view>
+    </view>
+</view>
+<view class="topline"></view>
+
+

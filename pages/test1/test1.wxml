@@ -1,0 +1,13 @@
+<!--pages/test1/test1.wxml-->
+<view class="picture_list">
+<view wx:for="{{upload_picture_list}}" class="picture_item" wx:key="{{index}}">
+<image wx:if="{{item.upload_percent < 100}}" src="{{item.path}}" mode="aspectFill"></image>
+<image wx:if="{{item.upload_percent == 100}}" src="{{item.path_server}}" mode="aspectFill"></image>
+<view class="upload_progress" wx:if="{{item.upload_percent < 100}}">{{item.upload_percent}}%</view>
+</view>
+<view class="picture_item">
+<image src="http://192.168.43.94:8080/image/111.gif" bindtap="uploadpic" mode="aspectFill"></image>
+</view>
+</view>
+<button bindtap='uploadimage'>确定上传</button>
+

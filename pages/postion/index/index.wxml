@@ -1,0 +1,68 @@
+<!--pages/postion/index/index.wxml-->
+<view class="main1"></view>
+<view class="top">
+    <view class="top-img-search">
+        <view class="context">
+            <view class="top-img-search-city">
+                <!-- <picker mode="region"  class="top-img-search-city-picker" value="{{region}}" > 当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}<text style="color: #737373;font-size:20rpx">▼</text> </picker> -->
+                <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+    <view class="picker">
+      {{multiArray[1][multiIndex[1]]}}<text style="color: #737373;font-size:20rpx">▼</text>
+    </view>
+  </picker>
+            </view>
+            <view class="top-img-search-input"><input class="input-style" type="text" placeholder="输入职位、企业关键字" name="cpname" bindblur="getName"></input></view>
+            <view class="top-img-search-btn" bindtap="search"> <button class="btn"  style="width:100%">搜索</button></view>
+          </view>
+    </view>
+    <view class="top-type">
+        <view class="type-con">
+            <view class="top-type1">
+                <view class="type-top">职位类型<text style="color: #737373;font-size:20rpx">▼</text></view>
+                <view class="type-bot">
+                    <picker bindchange="getJobtype" value="{{jobtypeIndex}}" range="{{jobtype}}"> 
+                 {{jobtype[jobtypeIndex]}}
+                    </picker>
+                </view>
+            
+            </view>
+            <view class="top-type2">
+                  <view class="type-top"> 工作行业<text style="color: #737373;font-size:20rpx">▼</text></view>
+                <view class="type-bot">
+                    <picker bindchange="getcomtype" value="{{comtypeInex}}" range="{{comtype}}"> 
+                 {{comtype[comtypeInex]}}
+                    </picker>
+                </view>
+            </view>
+            <view class="top-type3">
+                  <view class="type-top">企业性质<text style="color: #737373;font-size:20rpx">▼</text></view>
+                <view class="type-bot">
+                    <picker bindchange="getxingzhi" value="{{xzIndex}}" range="{{xingzhi}}"> 
+                 {{xingzhi[xzIndex]}}
+                    </picker>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="mainbox">
+   
+     <view class=" box" wx:for="{{zw}}">
+     <view class="box-context">
+        <view class="box-context-naty">
+            <view class="box-jobName"><navigator url="../detail/detail?employId={{item.employId}}">{{item.jobPostion}}</navigator></view>
+            <view class="box-jobtype">{{item.jobtype}}</view>
+        </view>
+        <view class="box-placeCon"> 
+           <view class="box-placeCon-1"><navigator url="../detail/detail?employId={{item.employId}}">{{item.diploma}}</navigator></view>
+            <view class="box-placeCon-2"><navigator url="../detail/detail?employId={{item.employId}}">{{item.workPlace}}</navigator></view>
+        </view>
+       <view class="box-jobsalay"><navigator url="../detail/detail?employId={{item.employId}}">{{item.salay}}</navigator></view>
+        <view class="box-comName"><image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1213072925,1096356367&fm=26&gp=0.jpg" style="height:26rpx;width:26rpx;padding-top:5rpx"></image>{{item.name}}</view>
+        <view class="box-time">
+            <navigator url="../detail/detail?employId={{item.employId}}">{{item.postTime}}</navigator></view>
+    </view>
+    </view>
+
+</view>

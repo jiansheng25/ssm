@@ -1,0 +1,19 @@
+<!--pages/student/resume/editSelfDes/editSelfDes.wxml-->
+<form bindsubmit="submitStu">
+<view class="main1">
+  
+    <view class="main1-item1">自我简介</view>
+
+    
+       <view class="main1-item2" style="height:auto">
+       
+          <textarea class="main1-item2-textarea" name="selfDes" value="{{selfDes}}"></textarea>
+      </view>
+     <view class="main1-line"></view>
+</view>
+
+
+
+<view class="main-line"></view>
+    <view class="main2"><button formType="submit" type='primary' style="width:100%;background-color: #4565f5;">保存</button></view>
+</form>

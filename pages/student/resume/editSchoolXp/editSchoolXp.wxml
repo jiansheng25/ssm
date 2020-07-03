@@ -1,0 +1,33 @@
+<!--pages/student/resume/editSchoolXp/editSchoolXp.wxml-->
+<form bindsubmit="submitStu">
+<view class="main1">
+  
+    <view class="main1-item1">校园经历</view>
+
+     <view class="main1-item2">
+        <view class="main1-item2-1">*经历名称:</view>
+         <view class="main1-item2-2"><input class="main1-item2-input" type="text" placeholder="输入经历名称" value="{{sc.xp_name}}" name="xp_name"></input></view>
+      </view>
+     <view class="main1-line"></view>
+
+       <view class="main1-item2">
+        <view class="main1-item2-1">*经历时间:</view>
+         <view class="main1-item2-2"><input class="main1-item2-input" type="text" placeholder="输入经历时间" value="{{sc.xp_time}}" name="xp_time"></input></view>
+      </view>
+     <view class="main1-line"></view>
+
+   
+
+       <view class="main1-item2" style="height:auto">
+        <view class="main1-item2-1" style="width:100%">经历描述:</view>
+          <textarea class="main1-item2-textarea" name="xp_des" >{{sc.xp_des}}</textarea>
+      </view>
+     <view class="main1-line"></view>
+</view>
+
+
+
+<view class="main-line"></view>
+    <view class="main2"><button formType="submit" type='primary' style="width:100%;background-color: #4565f5;">保存</button></view>
+</form>
+

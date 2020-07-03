@@ -1,0 +1,29 @@
+<!--pages/xuanjianghui/index/index.wxml-->
+<view class="main">
+    <view class="main1"><image src="ddd.png" class="img"></image></view>
+    <view class="main2">
+        <view class="main21"><input class="main21-input" type="text" bindblur="getName" name="xjhName" placeholder="输入宣讲会名称" style=""></input></view>
+        <view class="main22"><button class="main22-btn" bindtap="serach" style="width: 120rpx;">搜索</button></view>
+    </view>
+</view>
+
+<view class="line1"></view>
+<view class="line2"></view>
+
+<view class="mainbox">
+   
+     <view class=" box" wx:for="{{xjh}}">
+     <view class="box-context">
+        <view class="box-context-naty">
+            <view class="box-comName"><navigator url="../xjhDetail/xjhDetail?xuanjingId={{item.xuanjiangId}}">{{item.name}}</navigator></view>
+            <view class="box-comType"><navigator url="../xjhDetail/xjhDetail?xuanjingId={{item.xuanjiangId}}">{{item.companyType}}</navigator></view>
+        </view>
+        <view class="box-place"> <image src="77.png" style="height:25rpx;width:25rpx"></image> 
+              <text decode="{{true}}">&nbsp;</text>{{item.location}}</view>
+        <view class="box-time"><image src="80.png" style="height:25rpx;width:25rpx"></image> 
+              <text decode="{{true}}">&nbsp;</text> {{item.time1}}</view>
+    </view>
+    </view>
+
+</view>
+

@@ -1,0 +1,78 @@
+<!--pages/student/stuInfo/stuInfo.wxml-->
+<form bindsubmit="submitStu">
+  <view class="main1">
+
+    <view class="main1-item1">学生信息</view>
+
+    <view class="main1-item2">
+      <view class="main1-item2-1">姓名:</view>
+      <view class="main1-item2-2">
+        <label class="main1-item2-input" style="color: #8c8c8c">{{stu.stuName}}</label>
+      </view>
+    </view>
+    <view class="main1-line"></view>
+
+    <view class="main1-item2">
+      <view class="main1-item2-1">性别:</view>
+      <view class="main1-item2-2">
+         <label class="main1-item2-input" style="color: #8c8c8c">{{stu.gender}}</label>
+      </view>
+    </view>
+    <view class="main1-line"></view>
+
+    <view class="main1-item2">
+      <view class="main1-item2-1">年龄:</view>
+      <view class="main1-item2-2">
+         <label class="main1-item2-input" style="color: #8c8c8c">{{age}}</label>
+      </view>
+    </view>
+    <view class="main1-line"></view>
+
+    <view class="main1-item2">
+      <view class="main1-item2-1">学号:</view>
+      <view class="main1-item2-2">
+        <label class="main1-item2-input" style="color: #8c8c8c">{{stu.stuAccount}}</label>
+      </view>
+    </view>
+    <view class="main1-line"></view>
+
+    <view class="main1-item2">
+      <view class="main1-item2-1">班级:</view>
+      <view class="main1-item2-2">
+        <label class="main1-item2-input" style="color: #8c8c8c">{{stu.stuClass}}</label>
+      </view>
+    </view>
+    <view class="main1-line"></view>
+
+    <view class="main1-item2">
+      <view class="main1-item2-1">手机:</view>
+      <view class="main1-item2-2">
+        <input class="main1-item2-input" type="text" placeholder="联系方式" value="{{stu.phone}}" name="phone"></input>
+      </view>
+    </view>
+    <view class="main1-line"></view>
+
+    <view class="main1-item2">
+      <view class="main1-item2-1">邮箱:</view>
+      <view class="main1-item2-2">
+        <input class="main1-item2-input" type="text" placeholder="邮箱" value="{{stu.email}}" name="email"></input>
+      </view>
+    </view>
+    <view class="main1-line"></view>
+
+
+    <view class="main1-item2">
+      <view class="main1-item2-1">地址:</view>
+      <view class="main1-item2-2">
+        <input class="main1-item2-input" type="text" placeholder="输入地址" value="{{stu.address}}" name="address"></input>
+      </view>
+    </view>
+    <view class="main1-line"></view>
+
+  </view>
+
+  <view class="main-line"></view>
+  <view class="main2">
+    <button formType="submit" type='primary' style="width:100%;background-color: #4565f5;">保存</button>
+  </view>
+</form>

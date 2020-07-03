@@ -1,0 +1,20 @@
+<!--pages/student/rejected/rejected.wxml-->
+<view class="top">被拒绝的申请</view>
+
+<view class="mainbox">
+   <!-- -->
+     <view class=" box"  wx:for="{{zw}}">
+     <view class="box-context">
+        <view class="box-context-naty">
+            <view class="box-jobName"><navigator url="../../postion/detail/detail?employId={{item.employId}}">{{item.employment.jobPostion}}</navigator></view>
+            <view class="box-jobtype"><navigator url="../../postion/detail/detail?employId={{item.employId}}">{{item.employment.jobtype}}</navigator></view>
+        </view>
+        <view class="box-placeCon"> 
+           <view class="box-placeCon-1"><navigator url="../../postion/detail/detail?employId={{item.employId}}">申请时间:{{item.applyTime}}</navigator></view>
+            <view class="box-placeCon-2"></view>
+        </view>
+       <view class="box-jobsalay"><navigator url="../../postion/detail/detail?employId={{item.employId}}">{{item.employment.salay}}</navigator></view>
+    </view>
+    </view>
+</view>
+

@@ -1,0 +1,25 @@
+/* pages/student/index/index.wxss */
+page{
+background-color: #f2f2f3;
+}
+#main{width: 100%;height: 100%;text-align: center}
+#main1{width: 100%;height: 370rpx;background-color: wheat;background-image: url(http://img3.imgtn.bdimg.com/it/u=3732773993,1251648230&fm=26&gp=0.jpg);
+background-size:100%100%;}
+.main1-line1{width: 100%;height: 80rpx;}
+.main1-line2{height: 130rpx;align-items: center;display:flex;	}
+
+.main1-img{ background-color: red;width: 130rpx;height: 130rpx;margin: auto;border-radius: 50%}
+.main1-btn{width: 100%;height: 190rpx;text-align: center;}
+.main1-btn-stye{border: none;font-size: 30rpx;background: transparent;  
+border-color: transparent;}
+
+
+#main2{width: 100%;height: 120rpx;background-color: #ffffff;border-radius: 10rpx}
+.main-line2-item{height: 110rpx;width: 600rpx;padding-top: 0rpx;margin: auto}
+.main-line2-item-1{height: 110rpx;width: 200rpx;background-color:#ffffff;float: left;line-height: 30rpx;font-weight: 900}
+
+#main3{width: 100%;height: 500rpx;margin: auto;margin-top: 20rpx;text-align: left}
+.main3-item{width: 100%;height: 85rpx;background-color:#ffffff;padding-top: 5rpx;}
+.main3-item-btn{text-align: left;border: none;background-color: #ffffff;width: 800rpx;float: left;padding-left: 30rpx}
+
+.main3-item-line{width: 100%;height: 4rpx;}

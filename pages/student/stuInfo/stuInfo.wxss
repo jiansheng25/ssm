@@ -1,0 +1,17 @@
+/* pages/student/stuInfo/stuInfo.wxss */
+page{
+background-color: #f2f2f3;
+text-align: center
+}
+.main1{width: 95%;height: 725rpx;background-color: #ffffff;margin: 0 auto;text-align: center;border-radius: 10rpx;padding-top: 20rpx}
+.main1-item1{width: 95%;margin: 0 auto;text-align: left;font-weight: 600;height: 54rpx;padding-top: 6rpx}
+.main1-line{width: 95%;background-color:#f2f2f3;height: 3rpx;margin:  0 auto }
+.main1-item2{width: 95%;margin: 0 auto;text-align: left;height: 80rpx;}
+.main1-item2-1{width: 10%;text-align: left;height: 37rpx;padding-top: 43rpx;float: left;font-size: 27rpx}
+.main1-item2-2{width: 90%;text-align: left;height: 44rpx;padding-top: 36rpx;float: left}
+
+.main1-item2-input{padding-left: 30rpx;}
+
+.main-line{width: 100%;height: 25rpx}
+
+.main2{width: 95%;height: 100rpx;margin: 0 auto}

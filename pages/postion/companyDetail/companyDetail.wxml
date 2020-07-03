@@ -1,0 +1,58 @@
+<!--pages/postion/companyDetail/companyDetail.wxml-->
+<view class="com">
+  <view class="com-img">
+    <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1213072925,1096356367&fm=26&gp=0.jpg" style="height:120rpx;width:120rpx;padding-top:5rpx"></image>
+  </view>
+  <view class="com-name">{{zw[0].name}}</view>
+  <view class="com-detail">
+    <text decode="{{true}}">{{zw[0].xingzhi}}&nbsp;&nbsp;{{zw[0].renshu}}&nbsp;&nbsp;{{zw[0].companyType}}</text>
+  </view>
+</view>
+<view class="choose">
+  <view class="choose-com" style="background-color:{{comBackcolor}}">
+    <button class="choose-btn" style="width:100%" bindtap="getComInfo">公司信息</button>
+  </view>
+  <view class="choose-job" style="background-color: {{jobBackcolor}}">
+    <button class="choose-btn" style="width:100%" bindtap="getComRecriut">在招职位</button>
+  </view>
+
+  <view class="respose-com" style="display:{{comDisplay}}">
+    <view class="respose-com-title">1.公司简介：</view>
+    <view class="respose-com-detail">{{zw[0].companyInfo}}</view>
+    <view class="respose-com-title">2.福利待遇：</view>
+    <view class="respose-com-detail">{{zw[0].treatment}}</view>
+    <view class="respose-com-title">3.公司邮箱：</view>
+    <view class="respose-com-detail">{{zw[0].email}}</view>
+    <view class="respose-com-title">4.公司地址：</view>
+    <view class="respose-com-detail">{{zw[0].adress}}</view>
+  </view>
+<!-- // -->
+  <view class="respose-job" style="display: {{jobDisplay}}">
+    <view class="box" wx:for="{{zw}}">
+      <view class="box-context">
+        <view class="box-context-naty">
+          <view class="box-jobName">
+            <navigator url="../detail/detail?employId={{item.employId}}">{{item.jobPostion}}</navigator>
+          </view>
+          <view class="box-jobtype">{{item.jobtype}}</view>
+        </view>
+        <view class="box-placeCon">
+          <view class="box-placeCon-1">
+            <navigator url="../detail/detail?employId={{item.employId}}">{{item.diploma}}</navigator>
+          </view>
+          <view class="box-placeCon-2">
+            <navigator url="../detail/detail?employId={{item.employId}}">{{item.workPlace}}</navigator>
+          </view>
+        </view>
+        <view class="box-jobsalay">
+          <navigator url="../detail/detail?employId={{item.employId}}">{{item.salay}}</navigator>
+        </view>
+        <view class="box-comName">
+          <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1213072925,1096356367&fm=26&gp=0.jpg" style="height:26rpx;width:26rpx;padding-top:5rpx"></image>{{item.name}}</view>
+        <view class="box-time">
+          <navigator url="../detail/detail?employId={{item.employId}}">{{item.postTime}}</navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

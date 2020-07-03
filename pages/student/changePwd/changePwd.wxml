@@ -1,0 +1,34 @@
+<!--pages/student/changePwd/changePwd.wxml-->
+<form bindsubmit="submitStu">
+<view class="main1">
+  
+    <view class="main1-item1">密码管理</view>
+
+     
+
+       <view class="main1-item2">
+        <view class="main1-item2-1">旧密码:</view>
+         <view class="main1-item2-2"><input class="main1-item2-input" type="password" placeholder="输入旧密码"  name="oldPwd"></input></view>
+      </view>
+     <view class="main1-line"></view>
+
+       <view class="main1-item2">
+        <view class="main1-item2-1">新密码:</view>
+         <view class="main1-item2-2"><input class="main1-item2-input" type="password" placeholder="输新密码"  name="newPwd1"></input></view>
+      </view>
+     <view class="main1-line"></view>
+
+       <view class="main1-item2">
+        <view class="main1-item2-1">确认新密码:</view>
+         <view class="main1-item2-2"><input class="main1-item2-input" type="password" placeholder="确认新密码" name="newPwd2"></input></view>
+      </view>
+     <view class="main1-line"></view>
+
+</view>
+
+
+
+<view class="main-line"></view>
+    <view class="main2"><button formType="submit" type='primary' style="width:100%;background-color: #4565f5;">确认修改</button></view>
+</form>
+

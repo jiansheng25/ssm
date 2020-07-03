@@ -1,0 +1,20 @@
+/* pages/student/accepted/accepted.wxss */
+page{
+  background-color: #f2f2f3;text-align: center;
+}
+
+.top{width: 95%;height: 60rpx;margin:0 auto;text-align: left;font-weight: 900;}
+
+.box{width: 95%;height: auto;background-color: #ffffff;margin: 0 auto;border-radius: 20rpx;margin-bottom: 20rpx;text-align: center;overflow: hidden;}
+.box-context{width: 95%;text-align: center; margin:  0 auto;height: auto;overflow: hidden}
+.box-context-naty{width: 100%;float: left;height: auto;overflow: hidden}
+.box-jobName{width: 86%;height: auto;text-align: left;float: left;padding-top: 10rpx;font-weight: 900;margin-bottom: 8rpx}
+.box-jobtype{width: 14%;height:45rpx;text-align: center;float: left;padding-top: rpx;margin-bottom: 8rpx;background-color: #F2F2F3;margin-top: 15rpx;border-radius: 10rpx;font-size: 30rpx}
+
+.box-placeCon{width: 80%;height: 38rpx;float: left;text-align: left;font-size: 25rpx;margin-bottom: 20rpx}
+.box-placeCon-1{width: auto;height: 38rpx;float: left;text-align: left;margin-right: 15rpx;background-color: #f2f2f3;color:  #737373;padding-top: 0rpx;border-radius: 8rpx;}
+.box-placeCon-2{width: auto;height: 35rpx;text-align: left;float: left;background-color: #f2f2f3;color:  #737373;padding-top: 3rpx;border-radius: 8rpx;}
+.box-jobsalay{width: 20%;height: 38rpx;float: left;padding-top: rpx;text-align: right;color: #3366cc;font-size: 25rpx}
+
+.box-comName{width: 70%;height: 50rpx;float: left;text-align: left;font-size: 27rpx}
+.box-time{width: 30%;height: 45rpx;float: left;text-align: right;font-size: 25rpx;padding-top: 5rpx}

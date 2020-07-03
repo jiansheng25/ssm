@@ -1,0 +1,36 @@
+<!--pages/student/resume/addIntsXp/addIntsXp.wxml-->
+<form bindsubmit="submitStu">
+<view class="main1">
+  
+    <view class="main1-item1">实习经历</view>
+
+     <view class="main1-item2">
+        <view class="main1-item2-1">*实习企业:</view>
+         <view class="main1-item2-2"><input class="main1-item2-input" type="text" placeholder="输入企业名称" value="{{stu_interships_xp[0].ints_company}}" name="ints_company"></input></view>
+      </view>
+     <view class="main1-line"></view>
+
+       <view class="main1-item2">
+        <view class="main1-item2-1">*实习时间:</view>
+         <view class="main1-item2-2"><input class="main1-item2-input" type="text" placeholder="输入时间" value="{{stu_interships_xp[0].ints_time}}" name="ints_time"></input></view>
+      </view>
+     <view class="main1-line"></view>
+
+     <view class="main1-item2">
+        <view class="main1-item2-1">*工作职位:</view>
+         <view class="main1-item2-2"><input class="main1-item2-input" type="text" placeholder="输入职位" value="{{stu_interships_xp[0].ints_postion}}" name="ints_postion"></input></view>
+      </view>
+     <view class="main1-line"></view>
+
+       <view class="main1-item2" style="height:auto">
+        <view class="main1-item2-1" style="width:100%">*实习描述:</view>
+          <textarea class="main1-item2-textarea" name="ints_detail" >{{stu_interships_xp[0].ints_detail}}</textarea>
+      </view>
+     <view class="main1-line"></view>
+</view>
+
+
+
+<view class="main-line"></view>
+    <view class="main2"><button formType="submit" type='primary' style="width:100%;background-color: #4565f5;">保存</button></view>
+</form>

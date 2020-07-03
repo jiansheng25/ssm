@@ -1,0 +1,43 @@
+<!--pages/student/resume/editEduTrue/editEditTrue.wxml-->
+<form bindsubmit="submitStu">
+<view class="main1">
+  
+    <view class="main1-item1">教育经历</view>
+
+     <view class="main1-item2">
+        <view class="main1-item2-1">*学校名称:</view>
+         <view class="main1-item2-2"><input class="main1-item2-input" type="text" placeholder="输入学校名称" value="{{stuEduXp.schoolName}}" name="schoolName"></input></view>
+      </view>
+     <view class="main1-line"></view>
+
+       <view class="main1-item2">
+        <view class="main1-item2-1">*就读时间:</view>
+         <view class="main1-item2-2"><input class="main1-item2-input" type="text" placeholder="输入就读时间" value="{{stuEduXp.time}}" name="time"></input></view>
+      </view>
+     <view class="main1-line"></view>
+
+       <view class="main1-item2">
+        <view class="main1-item2-1">*相关专业:</view>
+         <view class="main1-item2-2"><input class="main1-item2-input" type="text" placeholder="相关专业" value="{{stuEduXp.majors}}" name="majors"></input></view>
+      </view>
+     <view class="main1-line"></view>
+
+       <view class="main1-item2">
+        <view class="main1-item2-1">*相关学历:</view>
+         <view class="main1-item2-2"><input class="main1-item2-input" type="text" placeholder="相关学历" value="{{stuEduXp.diploma}}" name="diploma"></input></view>
+      </view>
+     <view class="main1-line"></view>
+
+       <view class="main1-item2" style="height:auto">
+        <view class="main1-item2-1" style="width:100%">经历描述:</view>
+          <textarea class="main1-item2-textarea" name="des" value="{{stuEduXp.des}}"></textarea>
+      </view>
+     <view class="main1-line"></view>
+</view>
+
+
+
+<view class="main-line"></view>
+    <view class="main2"><button formType="submit" type='primary' style="width:100%;background-color: #4565f5;">保存</button></view>
+</form>
+

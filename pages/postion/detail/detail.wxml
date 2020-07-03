@@ -1,0 +1,51 @@
+<!--pages/postion/detail/detail.wxml-->
+<view class="topline"></view>
+
+<view class="top">
+    <view class="job">
+        <view class="job-top">
+            <view class="job-top-jobname">{{em.jobPostion}}</view>
+            <view class="job-top-perfer"> <button class="perfer-btn" style="width: 100%;background-color:{{perfercolor}}" bindtap="perferChange">收藏</button> </view>
+            <!-- #ff4d00 -->
+        </view>
+        <view class="center">
+            <view class="center-renshu">招聘人数:{{em.number1}}</view>
+            <view class="center-salary">{{em.salay}}</view>
+        </view>
+        <view class="job-botm">
+            <view class="job-botm1"> 学历:{{em.diploma}} <text decode="{{true}}"> &nbsp;</text>城市:{{em.workPlace}}</view>
+            <view class="job-botm2">{{em.jobtype}}</view>
+       
+        </view>
+    </view>
+<!-- 专业要求 -->
+    <view class="major">
+        <view class="major-title">专业要求：</view>
+        <view class="major-detail">{{em.majors}}</view>
+    </view>
+<!-- 岗位职责 -->
+ <view class="major">
+        <view class="major-title">岗位职责：</view>
+        <view class="major-detail">{{em.jobDetail}}</view>
+  </view>
+<!-- 福利待遇 -->
+<view class="major">
+        <view class="major-title">福利待遇：</view>
+        <view class="major-detail">{{em.treatment}}</view>
+</view>
+</view>
+<view class="topline"></view>
+<view class="company">
+    <view class="com-img"><image class="com-img-style"
+    src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1213072925,1096356367&fm=26&gp=0.jpg" ></image></view>
+    <view class="com-info">
+        <view class="com-info-comname"><navigator url="../companyDetail/companyDetail?account={{em[0].account}}">{{em.name}}</navigator> </view>
+        <view class="com-info-cominfo">规模{{em.renshu}}<text decode="{{true}}">&nbsp;</text>
+            {{em.xingzhi}}
+        </view>
+    </view>
+    <view class="com-detail"><navigator url="../companyDetail/companyDetail?account={{em.account}}">〉</navigator> </view>
+</view>
+
+
+<view class="bottom"><button type="primary" bindtap="apply" style="width:100%">申请职位</button></view>

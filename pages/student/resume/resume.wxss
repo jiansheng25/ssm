@@ -1,0 +1,29 @@
+/* pages/student/resume/resume.wxss */
+page{background-color: #f2f2f3;text-align: center;}
+.main{background-color: #ffffff;width: 95%;margin: 0 auto;border-radius: 10rpx;padding-top: 10rpx;text-align: center;overflow:hidden;height: auto;}
+
+.stuBox{width: 95%;height: auto;margin: 0 auto;border-bottom: 2rpx solid #f2f2f3;padding-bottom: 20rpx;padding-top: 20rpx;text-align: left ;overflow:hidden}
+
+.stuinfo{width: 100%;height: 140rpx; }
+.stuinfo-1{ width:75%;height: 140rpx ;float: left;}
+.stuinfo-11{width: 100%;height: 55rpx;float: left;text-align: left;font-weight: 900;padding-top: 25rpx;font-size: 38rpx}
+.stuinfo-12{width: 100%;height: 50rpx;float: left;text-align: left;font-size: 28rpx}
+.stuinfo-2{ width:25%;height: 140rpx;float: left ;text-align: right}
+.stuinfo-2-img{height:130rpx;width:130rpx;border-radius: 50%;}
+
+.pm{width: 100%;height: 100rpx}
+.phem{width: 50%;height:80rpx;float: left}
+.phem-img{width: 50rpx;height: 50rpx;}
+
+.tite{width: 100%;height: auto;float: left;text-align: left;}
+.tite1{width: 88%;height: 50rpx;float: left;font-weight:900;font-size: 40rpx }
+.tite2{width: 12%;height: 50rpx;float: left;text-align: right;font-size: 10rpx}
+.tite-btn{padding:0rpx 0rpx 0rpx 0rpx;color: blue;border: none;background-color: white;font-size: 30rpx}
+
+.contxt{width: 100%;float: left;text-align: left;height: auto;overflow: hidden}
+.contxt1{width: 50%;height: 40rpx;float: left;text-align: left;padding-top: 15rpx;font-weight: 900;font-size: 28rpx}
+.contxt2{width: 50%;height: 40rpx;float: left;text-align: right;color:  #666666;padding-top: 15rpx}
+.contxt3{width: 100%;float: left;text-align: left;color:   #666666;height: auto;overflow: hidden;font-size: 25rpx}
+
+.text{width: 100%;height: auto;float: left;text-align: left;margin-bottom: 15rpx;font-size: 25rpx;margin-top: 10rpx}
+.text-1{width: 100%;height: auto;float: left;text-align: left; }

@@ -1,0 +1,29 @@
+<!--pages/zhaopinhui/index/index.wxml-->
+<view class="main">
+    <view class="main1"><image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588691754510&di=156d8910edde4dd526e1fc5510e9afb6&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20191220%2F7ab464bfa4a749bfbc34e90e282b584e.jpeg" class="img"></image></view>
+    <view class="main2">
+        <view class="main21"><input class="main21-input" type="text" bindblur="getName" name="zhpName" placeholder="输入招聘会名称" style=""></input></view>
+        <view class="main22"><button class="main22-btn" bindtap="serach" style="width: 120rpx;">搜索</button></view>
+    </view>
+</view>
+<view class="line1"></view>
+<view class="line2"></view>
+
+<view class="mainbox">
+   
+     <view class=" box" wx:for="{{zph}}">
+     <view class="box-context">
+        <view class="box-context-naty">
+            <view class="box-comName"><navigator url="../zpHuizong/zpHuizong?zphId={{item.zphId}}">{{item.zhaoname}}</navigator></view>
+           
+        </view>
+        <view class="box-place"> <image src="../../xuanjianghui/index/77.png" style="height:25rpx;width:25rpx"></image> 
+              <text decode="{{true}}">&nbsp;</text>{{item.location }} </view>
+        <view class="box-time"><image src="../../xuanjianghui/index/80.png" style="height:25rpx;width:25rpx"></image> 
+              <text decode="{{true}}">&nbsp;</text> <label >{{item.time1}}</label></view>
+    </view>
+    </view>
+
+</view>
+
+

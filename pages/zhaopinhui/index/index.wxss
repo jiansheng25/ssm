@@ -1,0 +1,23 @@
+/* pages/zhaopinhui/index/index.wxss */
+page{
+background-color: #f2f2f3;
+}
+.main{width: 100%;height: rpx;position: fixed;float: left;text-align: center;background-color: #ffffff}
+.main1{width: 100%;height: 170rpx;}
+.img{width: 100%;background: 100%100%;height: 170rpx;
+}
+.main2{width: 95%;height: 70rpx;margin: auto;background-color: #ffffff}
+.main21{width: 75%;height: 50rpx;float: left;padding-top: 20rpx;background-color: #ffffff}
+.main21-input{text-align: left;}
+.main22{width: 25%;height: 60rpx;float: left;padding-top: 10rpx;background-color: #ffffff}
+.main22-btn{height: 55rpx;text-align:center;padding: 0rpx 0rpx 0rpx 0rpx;color: #80b2ff;border: 1rpx solid #80b2ff;border-radius: 40rpx;padding-bottom: rpx}
+.line1{width: 100%;height: 240rpx;float: left;background-color: #ffffff;}
+.line2{background-color: #f2f2f3;width: 100%;height:20rpx;float: left}
+.mainbox{width: 100%;height: auto;overflow: hidden;text-align: center;float: left;background-color: #f2f2f3}
+
+.box{width: 95%;height: auto;background-color: #ffffff;margin: 0 auto;border-radius: 20rpx;margin-bottom: 20rpx;text-align: center;overflow: hidden}
+.box-context{width: 95%;text-align: center; margin:  0 auto;height: auto;overflow: hidden}
+.box-context-naty{width: 100%;float: left;height: auto;overflow: hidden}
+.box-comName{width: 100%;height: auto;text-align: left;float: left;padding-top: 10rpx;font-weight: 900}
+.box-place{width: 100%;height: 50rpx;float: left;text-align: left}
+.box-time{width: 100%;height: 50rpx;float: left;text-align: left}

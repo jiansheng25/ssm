@@ -1,0 +1,28 @@
+<!--pages/login/login.wxml-->
+<view class="img">
+<swiper indicator-dots="{{indicatorDots}}"  
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">  
+      <block wx:for="{{imgUrls}}">  
+        <swiper-item>    
+            <image class="img-style"  src="{{item.url}}"></image>
+        </swiper-item>  
+      </block>  
+</swiper>  
+</view>
+<view class="img2"><image class="img-style2" src="../../img/eee.png"></image></view>
+<view class="name">江苏海洋大学校园招聘平台</view>
+
+
+<view class="login">
+<form bindsubmit="login">
+    <view class="login-input">
+        <view class="login-input-icon"> <image class="icon-style" src="../../img/name.png"></image></view>
+        <view class="login-input-text"><input class="input-style" type="text" name="no" placeholder="输入学号" value="123456"></input></view>
+    </view>
+    <view class="login-input">
+        <view class="login-input-icon"> <image class="icon-style" src="../../img/key.png"></image></view>
+        <view class="login-input-text"><input class="input-style" type="password" name="pwd" placeholder="\初始密码为身份证后六位" value="123456"></input></view>
+    </view>
+    <view class="login-btn" style="width:100%"><button form-type="submit"  type="primary">登录</button></view>
+    </form>
+</view>

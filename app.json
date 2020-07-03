@@ -1,13 +1,79 @@
 {
-  "pages":[
+  "pages": [
+    "pages/login/login",
+        "pages/student/resume/editEdu/editEdu",
+     "pages/student/resume/editEduTrue/editEditTrue",
+   
+    "pages/postion/index/index",
+    "pages/student/changePwd/changePwd",
+ 
+    "pages/postion/companyDetail/companyDetail",
+    "pages/student/index/index",
+    "pages/zhaopinhui/index/index",
+    "pages/zhaopinhui/zpHuizong/zpHuizong",
+    "pages/xuanjianghui/index/index",
+    "pages/xuanjianghui/xjhDetail/xjhDetail",
+    "pages/student/myPerfer/myPerfer",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/student/accepted/accepted",
+    "pages/student/rejected/rejected",
+    "pages/student/waiting/waiting",
+    "pages/postion/detail/detail",
+    "pages/student/resume/resume",
+    "pages/student/resume/editsKil/editSkil",
+    "pages/student/resume/editZhengshu/editZhengshu",
+    "pages/student/resume/editSelfDes/editSelfDes",
+    "pages/student/resume/addIntsXp/addIntsXp",
+    "pages/student/resume/addSchoolXp/addScholXp",
+    "pages/student/resume/addPro/addPro",
+
+
+    "pages/student/stuInfo/stuInfo",
+    "pages/test2/test2",
+    "pages/test1/test1",
+    "pages/logs/logs",
+    "pages/student/resume/editPro/editPro",
+    "pages/student/resume/editInts/editInts",
+    "pages/student/resume/editSchoolXp/editSchoolXp",
+    "pages/student/contactUs/contactUs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f2f2f3",
+    "navigationBarTitleText": "江海大就业平台",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#515151",
+    "selectedColor": "#66CDAA",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/postion/index/index",
+        "iconPath": "img/5555.png",
+        "selectedIconPath": "img/555.png",
+        "text": "职位"
+      },
+      {
+        "pagePath": "pages/zhaopinhui/index/index",
+        "iconPath": "img/5555.png",
+        "selectedIconPath": "img/555.png",
+        "text": "招聘会"
+      },
+      {
+        "pagePath": "pages/xuanjianghui/index/index",
+        "iconPath": "img/5555.png",
+        "selectedIconPath": "img/555.png",
+        "text": "宣讲会"
+      },
+      {
+        "pagePath": "pages/student/index/index",
+        "iconPath": "img/5555.png",
+        "selectedIconPath": "img/555.png",
+        "text": "我的"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

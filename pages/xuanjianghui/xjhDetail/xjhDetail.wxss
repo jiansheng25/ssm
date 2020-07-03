@@ -1,0 +1,44 @@
+/* pages/xuanjianghui/xjhDetail/xjhDetail.wxss */
+page{
+  background-color: #f2f2f3;text-align: center;
+}
+.topline{width: 100%;height: 20rpx;float: left}
+
+.top{width: 94%;height: auto;background-color: #ffffff;border-radius: 15rpx;margin: 0 auto;overflow: hidden;text-align: center;}
+
+.job{width: 93%;height: auto;margin: 0 auto;margin-bottom: 20rpx;text-align: left;overflow: hidden}
+.job-top{width: 100%;float: left;height: 70rpx;background-color: white;}
+.job-top-jobname{width: 80%;height: 50rpx;float: left;font-weight: 900;padding-top: 20rpx}
+.job-top-perfer{width: 20%;height: 53rpx;float: left;text-align: right;padding-top: 17rpx}
+.perfer-btn{padding: 0rpx 0rpx 0rpx 0rpx;height: 50rpx;margin:  0rpx 0rpx 0rpx 0rpx;text-align:center;font-weight: 500;}
+
+.job-center{width: 100%;float: left;height: 40rpx;}
+.center-renshu{width: 60%;background-color: white;height: 40rpx;float: left;font-size: 25rpx}
+.center-salary{width: 40%;background-color: white;height: 40rpx;float: left;font-size: 30rpx;text-align: right;color: #3366cc}
+.job-botm{width: 100%;float: left;height: auto;}
+.job-botm1{width: 86%;float: left;height: auto;font-size: 30rpx;color:  #737373}
+.job-botm2{width: 14%;float: left;height: auto;font-size: 30rpx;background-color: #f2f2f3;text-align: center;border-radius: 10rpx}
+
+.major{width: 93%;height: auto;margin: 0 auto;text-align: left;overflow: hidden;margin-bottom: 20rpx}
+.major-title{width: 100%;height: 50rpx;float: left;font-size: 30rpx;font-weight: 900}
+.major-detail{width: 100%;height: auto;float: left;font-size: 25rpx}
+
+/* .company{width: 95%;height: 180rpx;margin: 0 auto;background-color: #ffffff;float: left;text-align: center} */
+.company{width: 94%;height: 130rpx;background-color: #ffffff;border-radius: 15rpx;margin: 0 auto;overflow: hidden;text-align: center;}
+.com-img{width: 15%;height: 115rpx;float: left;padding-top: 15rpx}
+.com-img-style{height:100rpx;width:100rpx}
+.com-info{width: 75%;height: 130rpx;float: left;text-align: left}
+.com-info-comname{width: 100%;height: 45rpx;float: left;padding-top: 20rpx;font-weight: 900}
+.com-info-cominfo{width: 100%;height: 40rpx;float: left;font-size: 33rpx;color: #666666;padding-bottom:22rpx; }
+
+.com-detail{width: 10%;height: 90rpx;float: left;text-align: center;color: #808080;padding-top: 40rpx}
+
+.bottom{width: 100%;height: auto;background-color: #ffffff;text-align: center;position: fixed;
+        bottom: 0;}
+
+.com-top{width: 95%;height: 50rpx;margin: 0 auto;font-weight: 900;overflow: hidden}
+.com-huizong{width: 93%;height: auto;margin:0 auto;background-color: 
+rgb(206, 206, 195);margin-bottom: 20rpx;border-radius: 10rpx;text-align: center;padding-top: 10rpx;padding-bottom: 10rpx}
+.com-huizong-item{width: 97%;height: auto;margin: 0 auto;text-align: left;font-size: 25rpx;margin-bottom: 10rpx;overflow: hidden}
+.item-left{width: 50%;float: left;text-align: left}
+.item-right{width: 50%;float: left;text-align: left}
