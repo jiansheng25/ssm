@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>企业注册</title>
+		<script src="../js/mainJs.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/comlogin.css"/>
+		<script src="../js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		</script>
+		<script>
+			$(document).ready(function () {
+				updateCode();
+				$(".indl").click(function() {
+					codeyz();
+					$.ajax({
+						type: "POST",                            //传数据的方式
+						url: commomPath+"comSerServlet", //servlet地址
+						data: {
+							password:$(".inpa").val(),
+							account:$(".inac").val(),
+							code:$(".inyz").val(),
+							name:$(".inna").val()
+						},
+						success: function(data){ //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+							if(data=="1"){
+								alert("注册成功！")
+							}else if(data=="0"){
+								alert("注册失败");
+							}else if(data=="-1"){
+								alert("该账号已存在！");
+							}else {
+								alert("验证码错误！");
+							}
+						},
+						error : function()
+						{
+							alert("信息传输发生错误！");
+						}
+					})
+				});
+			});
+			//更新验证码
+			function updateCode() {
+			document.getElementById("img").onclick=function(){
+				var date=new Date().getTime();
+				this.src="/schoolEmploy/checkCodeServlet?time="+date;
+			    }
+		    };
+			function codeyz() {
+				var code1=$(".inpay").val();
+				var code2=$(".inpa").val();
+				// alert(code1+code2);
+				if(code2==""||code1==""){
+					alert("对不起，重复密码不能为空");
+					return;
+				}else {
+					if(code1!=code2){
+						alert("输入密码不一致");
+						return;
+					}
+				}
+			};
+			function zhuan() {
+				window.location.href="comlogin.html";
+			}
+		</script>
+	</head>
+	<body>
+	<form id="form">
+		<div class="login">
+			<div class="left">
+				<div class="letop">
+					<img src="../img/xiaohui1.jpg" height="40px" width="40px" >
+				</div>
+				<div class="lebot">
+					江苏海洋大学校园招聘平台
+				</div>
+				<div class="right">
+					<div class="d1">
+						企业注册
+					</div>
+					<div class="dline">
+						
+					</div>
+					<div class="d2">
+						<input class="inna" type="text" name="account" id="name1" placeholder="企业名称" />
+					</div>
+					<div class="d2">
+						<input class="inac" type="text" name="account" id="account" placeholder="账号" />		
+					</div>
+					<div class="d2">
+						<input class="inpa" type="password" name="password" id="password" placeholder="密码" />			
+					</div>
+					<div class="d2">
+						<input class="inpay" type="password" name="password2" id="password2" placeholder="确认密码" />
+					</div>
+					<div class="d2" style="background-color:#ccccff ">
+						<input class="inyz" type="text" name="yzm" id="yzm" placeholder="验证码" />	
+						<div class="incode">
+							<img id="img" src="/schoolEmploy/checkCodeServlet">
+						</div>
+					</div>
+					<div class="d3" style="height: 45px">
+						<input class="indl" type="button"  value="注 册" />
+					</div>	
+					<div class="d2" style="background-color: #ccccff; text-align:left;height: 20px;margin-top: 0px">
+						<input style="color: #66AFE9;border-radius:5px;" type="button" onclick="zhuan()" value="返回登录" />
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</form>
+	</body>
+</html>

@@ -1,0 +1,1 @@
+ var commomPath="http://localhost:8080/ssm/";

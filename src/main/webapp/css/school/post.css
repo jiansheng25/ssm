@@ -1,0 +1,80 @@
+body{
+	background-color:#ffffff;
+	text-align: center;
+}
+#main{
+	margin: auto;
+	width: 1300px;
+	height: 100%;
+	/* position: absolute;
+     bottom: 0; */
+	background-color: antiquewhite;
+}
+.top{width: 100%;height: 50px;background-color: #0d59a7;float: left;}
+.top1{width: 50px;height: 50px;float: left;margin-left: 20px;}
+.top2{width: 380px;height: 47px;background-color: #0d59a7;
+	float: left;text-align: left;padding-left: 2px;font-size: 30px;padding-top: 3px; color: white;
+}
+
+.top33{width: 300px;height: 50px;background-color: #0d59a7;float: right;}
+.top44{width: 260px;height: 39px;background-color:#0d59a7;float:left;text-align:right;font-size:20px;padding-top:11px;color:#bcbdcf }
+.top45{width: 40px;height: 50px;background-color: yellow;float: left;}
+.top3{width: 40px;height: 30px;background-color: #0d59a7;float: left;padding-top: 5px;}
+.top4{width: 40px;height: 12px;background-color:#0d59a7;float: left;
+	text-align: center;color: white;font-size: 10px;padding-bottom: 3px;}
+.btttom{width: 100%;height: 700px;background-color: navy;float: left;}
+.left{width: 170px;height: 700px;background-color: #292c34;float: left;}
+.left3{width: 170px;height: 10px;background-color: #292c34;float: left;}
+.left1{width: 180px;height: 40px;background-color: #292c34;float: left;
+	text-align: left;padding-left: 20px;margin-bottom: 10px}
+.left11{width: 14px;height: 27px;background-color: #292c34;float: left;color:#bcbdcf;
+	text-align: left;font-size: 12px;padding-top: 13px}
+.left12{width: 166px;height: 40px;background-color:red;float: left;
+	text-align: left;}
+.btn1{width: 100%;height:40px;font-size: 20px;text-align: left;background-color:#292c34 ;color:#bcbdcf ;border:#292c34 ;}
+.btn1:hover{color: white;}
+.right{width: 1130px;height:700px;background-color:white;float: left;}
+
+.rtop{width: 1125px;height: 665px;background-color: white;float: left;}
+.rtopp{width: 1125px;height: 60px;background-color: white;float: left;text-align: right;}
+/*.rbtn{width: 80px;height: 43px;font-size: 24px;background-color: #fbfbfb;margin-top: 7px;border-color: white;border-radius:5px}*/
+.top-title{width: 590px;height: 43px;float: left;text-align: left;padding-top: 17px;font-size: 22px;padding-left: 10px}
+.top-btn{width: 525px;height: 60px;float: left;text-align: right;}
+.rbtn{width: 80px;height: 43px;font-size: 24px;background-color: #fbfbfb;margin-top: 7px;border-color: white;border-radius:5px}
+
+.rtopb{width: 1130px;height: 605px;background-color: white;float: left;}
+.zhao{width: 1125px;height: 100px;background-color: red;float: left;margin-left: 5px}
+
+.rtopbl{width: 395px;height: 495px;background-color:#f1f1f6;float: left;margin-bottom: 10px;margin-left: 5px}
+.rtopbl1{width: 385px;height: 65px;background-color:#f1f1f6;float: left;padding-left: 10px}
+.rtopb111{width: 385px;height: 27px;background-color:#f1f1f6;float:left;padding-top:8px;font-size:20px;text-align: left;color:black}
+.rtopbl12{width: 380px;height: 30px;background-color:#f1f1f6;float: left;text-align:left}
+.btn11l11{width: 380px;height: 30px;float: left;text-align: left;padding-top: 0px;
+	font-size: 18px;border-radius: 5px;  border-style: none;}
+/*.rtopb1{width: 390px;height: 60px;background-color:grey;float: left;text-align: left}*/
+
+.rtopbr{width: 720px;height: 495px;background-color: #f1f1f6;float: left;margin-left: 10px;}
+.rtopbr1{width: 680px;height: 115px;background-color: #f1f1f6;float: left;text-align: left;margin-left: 20px;margin-right: 20px}
+.rtopbr11{width: 680px;height: 25px;background-color:#f1f1f6;float: left;text-align: left;margin-top: 15px;font-size:20px}
+.rtopbr12{width: 680px;height: 45px;float: left;text-align: left}
+.rtopbr1t{width: 680px;height: 75px;background-color: white; border-style: none;
+}
+
+.rtopbr2{width: 680px;height: 460px;background-color: white;float: left;text-align: left;margin-left: 20px;margin-right: 20px;margin-top: 10px}
+/*输入专业人数*/
+.rtopbrf1{width: 280px;height: 460px;background-color: #f1f1f6;float: left;text-align: center}
+.rtopbrf1f{width: 260px;height: 60px;background-color:  #f1f1f6;float: left;margin-right: 10px}
+.rtopbrf11{width: 260px;height: 27px;background-color:#f1f1f6;float:left;padding-top:3px;font-size:20px;text-align: left;color:black}
+.rtopbrf12{width: 260px;height: 30px;background-color:#f1f1f6;float: left;text-align:left}
+.btn1f{width: 260px;height: 30px;float: left;text-align: left;padding-top: 0px;
+	font-size: 18px;border-radius: 5px;  border-style: none;}
+/*输入框*/
+.rtopbrf2{width: 400px;height: 460px;float: left;background-color: #f1f1f6}
+.rtopbr21{width: 400px;height: 25px;background-color:#f1f1f6;float: left;text-align: left;font-size:20px}
+.rtopbr22{width: 400px;height: 455px;float: left;text-align: left}
+.rtopbr2t{width: 400px;height: 455px;background-color: white; border-style: none;
+}
+
+
+
+.rbton{width: 1130px;height: 30px;background-color: #29272D;float: left;color:#bcbdcf;padding-top: 5px;font-size: 14px}

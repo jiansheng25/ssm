@@ -1,0 +1,31 @@
+html,body{background: url(../img/haiyang.jpg) no-repeat center 0px;
+	background-position: center 0; 
+	background-size: cover;
+	margin: 0;padding: 0;
+	position: relative;
+}
+.login{
+	   width:450px;  
+	   height:auto;
+	   position:absolute;  
+	   left:50%;  
+	   top:50%;  
+	   margin:200px 0 0 -250px;
+	   overflow: hidden;
+}
+.left{width: 360px;height: auto;float: left;border-radius:10px;}
+.letop{width: 440px;height: 35px;float: left;text-align: left;padding-top:35px;padding-left: 10px;}
+.lebot{width: 450px;height: 40px;float: left;text-align: left;font-size: 36px;color: white}
+.right{width: 430px;height: auto;background-color:#ccccff;float: left;border-radius:10px;margin-top:5px;}
+.d1{width: 430px;height: 45px;float:left;text-align:center;font-size:30px;padding-top:5px;}
+.dline{width: 400px;height: 1px;float:left;text-align:center;background-color: #669999;margin-left: 15px;}
+.d2{width: 400px;height: 50px;background-color:yellowgreen;float: left;margin-top: 5px;text-align: left;margin-left: 15px;border-radius:5px;}
+.inna{width: 395px;height: 45px;text-align:left;border-radius:5px;padding-left: 5px;font-size: 24px;}
+.inac{width: 395px;height: 45px;text-align:left;border-radius:5px;padding-left: 5px;font-size: 24px;}
+.inpa{width: 395px;height: 45px;text-align:left;border-radius:5px;padding-left: 5px;font-size: 24px;}
+.inpay{width: 395px;height: 45px;text-align:left;border-radius:5px;padding-left: 5px;font-size: 24px;}
+.inyz{width: 200px;height: 45px;text-align:left;border-radius:5px;padding-left: 5px;font-size: 24px;float: left;}
+.incode{width: 180px;height: 45px;text-align:left;border-radius:5px;padding-left: 5px;float: left; background-color: #ccccff;margin-top: 5px}
+.indl{width: 400px;height: 45px;font-size: 30px;border-radius:5px;color: #66AFE9;}
+
+.d3{width: 400px;height: 50px;float: left;margin-top: 5px;text-align: center;margin-left: 15px;border-radius:5px;}

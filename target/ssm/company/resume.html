@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>求职者简历</title>
+    <link rel="stylesheet" type="text/css" href="../css/resume.css" />
+    <script src="../js/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.cookie.js" type="text/javascript"></script>
+    <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="../js/mainJs.js"></script>
+    <script>
+        $(document).ready(function(){
+            getStuInfo();
+            getStuEduXp();
+            getStuJobXp();
+            getStuProXp();
+            getStuSchoolXp();
+        });
+        function getStuInfo() {
+            $.ajax({
+                type: "POST",                            //传数据的方式
+                url: commomPath + "getStuInfoByOpendidServlet", //servlet地址
+                data: {
+                   openid:  $.cookie("opendid")
+                },
+                success: function (data) { //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                    var list = $.parseJSON(data);
+                   $("#stuName").html(list[0].stuName);
+                   $("#email").html(list[0].email);
+                   $("#gender").html(list[0].gender);
+                   // $("#age").html(list[0].age);
+                   $("#address").html(list[0].address);
+                   $("#selfDes").html(list[0].selfDes);
+                   $("#skil").html(list[0].skil);
+                   $("#zhengshu").html(list[0].zhengshu);
+                   $("#phone").html(list[0].phone);
+
+                    var age=parseInt(list[0].age.substring(0,4));
+                    var age1= new Date().getFullYear()-age
+                    $("#age").html(age1+"("+list[0].age.substring(0,7)+")");
+                },
+                error: function () {
+                    alert("信息传输错误！");
+                }
+            })
+        }
+        function getStuEduXp() {
+            $.ajax({
+                type: "POST",                            //传数据的方式
+                url: commomPath + "getAllEduXpServlet", //servlet地址
+                data: {
+                    openid:  $.cookie("opendid")
+                },
+                success: function (data) { //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                    var list = $.parseJSON(data);
+                    $.each(list,function (i,n) {
+                        var htm="<div class=\"edu-detail\">" +
+                            "<div class=\"detail-time\">" +
+                            n.time +
+                            "</div>" +
+                            "<div class=\"detail-school\">" +
+                            n.schoolName +"</div>" +
+                            "<div class=\"detail-school\">" +
+                            n.majors +"</div>\n" +
+                            "<div class=\"detail-time\">" +
+                            n.diploma +"</div>" +
+                            "</div>";
+                        $(".edu-com").append(htm);
+                    })
+                },
+                error: function () {
+                    alert("信息传输错误！");
+                }
+            })
+        }
+        function getStuJobXp() {
+            $.ajax({
+                type: "POST",                            //传数据的方式
+                url: commomPath + "getAllIntsXpServlet", //servlet地址
+                data: {
+                    openid:  $.cookie("opendid")
+                },
+                success: function (data) { //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                    var list = $.parseJSON(data);
+                    $.each(list,function (i,n) {
+                        var htm="<div class='com-detail'>"+
+                        n.ints_time+"&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;"+
+                        n.ints_company+" </div>"+
+                        "<div class='jobPostion' style='margin-bottom: 0px'>"+
+                         "<div class='jopName'>"+
+                           "工作职位："+ n.ints_postion+"</div></div>"+
+                        "<div class='jobPostion'><div class=\"title11\">"+
+                         "工作描述：</div>"+
+                            "<div class='jopName'>"+n.ints_detail+"</div>"+
+                        "</div>";
+                        $(".job_com").append(htm);
+                    })
+                },
+                error: function () {
+                    alert("信息传输错误！");
+                }
+            })
+        }
+        function getStuProXp() {
+            $.ajax({
+                type: "POST",                            //传数据的方式
+                url: commomPath + "getAllProXpServlet", //servlet地址
+                data: {
+                    openid:  $.cookie("opendid")
+                },
+                success: function (data) { //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                    var list = $.parseJSON(data);
+                    $.each(list,function (i,n) {
+                        var htm=" <div class='com-detail'>"+
+                        n.pro_time+" &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;"+n.pro_name+
+                        "</div><div class='jobPostion'>"+
+                        "<div class='title11'>"+"项目描述："+
+                        "</div><div class='jopName'>"+n.pro_des+
+                         "</div></div>";
+                        $(".pro_com").append(htm);
+                    })
+                },
+                error: function () {
+                    alert("信息传输错误！");
+                }
+            })
+        }
+        function getStuSchoolXp() {
+            $.ajax({
+                type: "POST",                            //传数据的方式
+                url: commomPath + "getAllSchoolXpServlet", //servlet地址
+                data: {
+                    openid:  $.cookie("opendid")
+                },
+                success: function (data) { //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                    var list = $.parseJSON(data);
+                    $.each(list,function (i,n) {
+                        var htm=" <div class='com-detail'>"+
+                            n.xp_time+" &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;"+n.xp_name+
+                            "</div><div class='jobPostion'>"+
+                            "<div class='title11'>"+"经历描述："+
+                            "</div><div class='jopName'>"+n.xp_des+
+                            "</div></div>";
+                        $(".school_com").append(htm);
+                    })
+                },
+                error: function () {
+                    alert("信息传输错误！");
+                }
+            })
+        }
+        function fanhui() {
+            window.location.href="applyManager.html"
+        }
+    </script>
+</head>
+<body>
+<div id='main'>
+    <div class="title">
+        求职者简历
+    </div>
+    <div class="line"></div>
+    <div class="name">
+        <div class="name-img">
+            <img class="img-style" src="../img/tou.jpg">
+        </div>
+        <div class="name-detail">
+            <div class="mager-con">
+                <div class="detail-name">
+                    胡汉三<label id="stuName"></label>
+                </div>
+                <div class="fanhui">
+                    <input type="button" name="" class="fanhui-btn" onclick="fanhui()"  value="返回处理" />
+                </div>
+            </div>
+            <div class="detail-age">
+                <label id="gender"></label>&nbsp;|&nbsp; <label id="age"></label> &nbsp;|&nbsp;
+                <label id="address"></label>
+            </div>
+            <div class="detail-phone">
+                电话:<label id="phone"></label> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                邮箱:<label id="email"></label>
+            </div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="edu">
+        <div class="edu_title">
+            教育经历
+        </div>
+        <div class="edu-com">
+<!--            <div class="edu-detail">-->
+<!--                <div class="detail-time">-->
+<!--                    <label id="time"></label>2018-01-2019-03-->
+<!--                </div>-->
+<!--                <div class="detail-school">-->
+<!--                    <label id='schoolName'></label>江苏海洋大学-->
+<!--                </div>-->
+<!--                <div class="detail-school">-->
+<!--                    <label id='major'></label>	软件工程-->
+<!--                </div>-->
+<!--                <div class="detail-time">-->
+<!--                    <label id='diploma'></label>	本科-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="edu">
+        <div class="edu_title">
+            工作、实习经历
+        </div>
+        <div class="job_com">
+<!--            <div class="com-detail">-->
+<!--                <label id='ints_time'></label>	2011-09-2018-12 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;-->
+<!--                <label id='ints_company'></label>江苏信鸽网路技术有限公司-->
+<!--            </div>-->
+<!--            <div class="jobPostion" style='margin-bottom: 0px'>-->
+<!--                <div class="title11">-->
+<!--                    工作职位：-->
+<!--                </div>-->
+<!--                <div class="jopName">-->
+<!--                    <label id="ints_postion"></label>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="jobPostion">-->
+<!--                <div class="title11">-->
+<!--                    工作描述：-->
+<!--                </div>-->
+<!--                <div class="jopName">-->
+<!--                    <label id='ints_detail'></label>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </div>
+    <div class="line"></div>
+
+    <div class="edu">
+        <div class="edu_title">
+            项目经验
+        </div>
+        <div class="pro_com">
+
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="edu">
+        <div class="edu_title">
+            在校经历
+        </div>
+        <div class="school_com">
+<!--            <div class="com-detail">-->
+<!--                <label id='xp_time'></label>	2011-09-2018-12 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;-->
+<!--                <label id='xp_name'></label>江苏信鸽网路技术有限公司-->
+<!--            </div>-->
+<!--            <div class="jobPostion">-->
+<!--                <div class="title11">-->
+<!--                    经历描述：-->
+<!--                </div>-->
+<!--                <div class="jopName"><label id='xp_des'></label>-->
+<!--                    本系统主要用户是家长和老师，老师录入学生在校成绩本系统主要用户是家长和老师，老师录入学生在校成绩-->
+<!--                    本系统主要用户是家长和老师，老师录入学生在校成绩-->
+<!--                    本系统主要用户是家长和老师，老师录入学生在校成绩-->
+<!--                    本系统主要用户是家长和老师，老师录入学生在校成绩-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </div>
+    <div class="line"></div>
+
+    <div class="edu">
+        <div class="edu_title">
+            职业技能
+        </div>
+        <div class="job_com-skil"><label id='skil'></label>
+
+
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="edu">
+        <div class="edu_title">
+            所获证书
+        </div>
+        <div class="job_com-skil">	<label id="zhengshu"></label>
+
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="edu">
+        <div class="edu_title">
+            自我评价
+        </div>
+        <div class="job_com-skil">	<label id='selfDes'></label>
+
+        </div>
+    </div>
+    <div class="line"></div>
+</div>
+</body>
+</html>

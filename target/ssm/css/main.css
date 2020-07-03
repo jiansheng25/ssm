@@ -1,0 +1,40 @@
+body{
+	background-color:#f2f2f2;
+	text-align: center;
+}
+#main{
+	margin: auto;
+	width: 1300px;
+	height: 100%;
+	/* position: absolute;
+     bottom: 0; */
+	background-color: antiquewhite;
+}
+.top{width: 100%;height: 50px;background-color: #0d59a7;float: left;}
+.top1{width: 50px;height: 50px;float: left;margin-left: 20px;}
+.top2{width: 380px;height: 47px;background-color: #0d59a7;
+	float: left;text-align: left;padding-left: 2px;font-size: 30px;padding-top: 3px; color: white;
+}
+
+.top33{width: 300px;height: 50px;background-color: #0d59a7;float: right;}
+.top44{width: 260px;height: 39px;background-color:#0d59a7;float:left;text-align:right;font-size:20px;padding-top:11px;color:#bcbdcf }
+.top45{width: 40px;height: 50px;background-color: yellow;float: left;}
+.top3{width: 40px;height: 30px;background-color: #0d59a7;float: left;padding-top: 5px;}
+.top4{width: 40px;height: 12px;background-color:#0d59a7;float: left;
+	text-align: center;color: white;font-size: 10px;padding-bottom: 3px;}
+.btttom{width: 100%;height: 700px;background-color: navy;float: left;}
+.left{width: 170px;height: 700px;background-color: #292c34;float: left;}
+.left3{width: 170px;height: 10px;background-color: #292c34;float: left;}
+.left1{width: 180px;height: 40px;background-color: #292c34;float: left;
+	text-align: left;padding-left: 20px;margin-bottom: 10px}
+.left11{width: 14px;height: 27px;background-color: #292c34;float: left;color:#bcbdcf;
+	text-align: left;font-size: 12px;padding-top: 13px}
+.left12{width: 166px;height: 40px;background-color:red;float: left;
+	text-align: left;}
+.btn1{width: 100%;height:40px;font-size: 20px;text-align: left;background-color:#292c34 ;color:#bcbdcf ;border:#292c34 ;}
+.btn1:hover{color: white;}
+.right{width: 1130px;height:700px;background-color:white;float: left;}
+
+
+.rtop{width: 1130px;height: 665px;background-color: white;float: left;}
+.rbton{width: 1130px;height: 30px;background-color: #29272D;float: left;color: #bcbdcf;padding-top: 5px;font-size: 14px}

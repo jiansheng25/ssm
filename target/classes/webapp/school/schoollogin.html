@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>校方登录</title>
+	<script src="../js/mainJs.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/comlogin.css"/>
+	<script src="../js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$
+	</script>
+	<script>
+		$(document).ready(function () {
+			updateCode();
+			$(".indl").click(function() {
+				$.ajax({
+					type: "POST",                            //传数据的方式
+					url: commomPath+"sc/login", //servlet地址
+					data: {
+						password:$(".inpa").val(),
+						account:$(".inac").val(),
+						code:$(".inyz").val()
+					},
+					success: function(data){ //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+						if(data=="1"){
+							window.location.href="main.html";
+						}else if(data=="0"){
+							alert("账号或密码错误！");
+						}else {
+							alert("验证码错误！");
+							var date=new Date().getTime();
+							document.getElementById("img").src="/ssm/sc/createVerCode?time="+date;
+						}
+					},
+					error : function()
+					{
+						alert("信息传输发生错误！");
+					}
+				})
+			});
+		});
+		function updateCode() {
+			document.getElementById("img").onclick=function(){
+				var date=new Date().getTime();
+				this.src="/ssm/sc/createVerCode?time="+date;
+			}
+		};
+		function zhuan() {
+			// window.location.href="comregister.html";
+		}
+	</script>
+</head>
+<body>
+<form id="form">
+	<div class="login">
+		<div class="left">
+			<div class="letop">
+				<img src="../img/xiaohui1.jpg" height="40px" width="40px" >
+			</div>
+			<div class="lebot">
+				江苏海洋大学校园招聘平台
+			</div>
+			<div class="right">
+				<div class="d1">
+					校方登录
+				</div>
+				<div class="dline">
+
+				</div>
+				<div class="d2">
+					<input class="inac" type="text" name="account" id="account" placeholder="账号" />
+				</div>
+				<div class="d2">
+					<input class="inpa" type="password" name="password" id="password" placeholder="密码" />
+				</div>
+				<div class="d2" style="background-color:#ccccff ">
+					<input class="inyz" type="text" name="yzm" id="yzm" placeholder="验证码" />
+					<div class="incode">
+						<img id="img" src="/ssm/sc/createVerCode">
+					</div>
+				</div>
+				<div class="d3">
+					<input class="indl" type="button"  value="登 录" />
+				</div>
+			</div>
+		</div>
+
+	</div>
+</form>
+</body>
+</html>
+

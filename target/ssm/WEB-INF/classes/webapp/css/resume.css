@@ -1,0 +1,66 @@
+body{
+	text-align: center;
+}
+/* #f2f2f2 */
+#main{width: 750px;height: auto;margin:0 auto;background-color:#fdfdfd;text-align: center;
+	overflow: hidden;
+}
+.title{width: 730px;height: 30px;margin: 0 auto;text-align: left;font-size: 23px;margin-top: 8px;
+font-weight: 900;margin-bottom: 10px;}
+.line{width: 730px;height: 1px;margin: 0 auto;background-color:#f2f2f2;margin-top: 5px;}
+/* 头像 */
+.name{width: 730px;height: 130px;margin:0 auto;background-color: #fdfdfd;margin-top: 5px;}
+.name-img{width: 100px;height: 120px;float: left;padding-top: 10px;}
+.img-style{width: 90px;height: 110px;}
+.name-detail{width: 620px;height: 130px;float: left;padding-left: 10px;}
+.mager-con{width: 100%;height: 40px;float: left;}
+
+.detail-name{width: 30%;height: 40px;float: left;
+text-align: left;font-weight: 600;font-size: 23px;padding-top: 15px;}
+/* 操作 */
+.fanhui{width: 70%;height: 40px;float: left;
+text-align: right;font-weight: 600;font-size: 23px;padding-top: 15px;}
+.fanhui-btn{height: 30px;width: 100px;font-weight: 600;background-color: #ff5300;border: none;border-radius: 5px;
+font-size: 18px;color: white;}
+.detail-age{width: 100%;height: 24px;float: left;text-align: left;padding-top: 8px;}
+.detail-phone{width: 100%;height: 32px;float: left;text-align: left;padding-top: 10px;}
+/* 教育 */
+.edu{width: 730px;height: auto;margin: 0 auto;text-align: left;margin-top: 10px;overflow: hidden}
+.edu_title{width: 730px;height: 30px;float:left;text-align: left;font-weight: 900;}
+.edu-com{width: 730px;height: auto;float:left;text-align: left;}
+.edu-detail{width: 730px;height: 30px;float:left;text-align: left;}
+
+.detail-time{width: 25%;float: left;}
+.detail-school{width: 25%;float: left;}
+/* 实习经历 */
+.edu{width: 730px;height: auto;margin: 0 auto;text-align: left;margin-top: 10px;overflow: hidden;margin-bottom: 10px;}
+.edu_title{width:730px;height: 30px;float:left;text-align: left;font-weight: 900;color: #ff5300;}
+.job_com{width:730px;height: auto;float:left;text-align: left;}
+.com-detail{width: 730px;height: 25px;float:left;text-align: left;}
+.jobPostion{width: 730px;height: auto;float:left;text-align: left;}
+.title11{width: 80px;height: 25px;float:left;text-align: left;text-align: left;}
+.jopName{width: 590px;height: auto;float:left;text-align: left;}
+/* 项目经历*/
+.edu{width: 730px;height: auto;margin: 0 auto;text-align: left;margin-top: 10px;overflow: hidden;margin-bottom: 10px;}
+.edu_title{width:730px;height: 30px;float:left;text-align: left;font-weight: 900;color: #ff5300;}
+.pro_com{width:730px;height: auto;float:left;text-align: left;}
+.com-detail{width: 730px;height: 25px;float:left;text-align: left;}
+.jobPostion{width: 730px;height: auto;float:left;text-align: left;}
+.title11{width: 80px;height: 25px;float:left;text-align: left;text-align: left;}
+.jopName{width: 590px;height: auto;float:left;text-align: left;}
+/* 在校经历*/
+.edu{width: 730px;height: auto;margin: 0 auto;text-align: left;margin-top: 10px;overflow: hidden;margin-bottom: 10px;}
+.edu_title{width:730px;height: 30px;float:left;text-align: left;font-weight: 900;color: #ff5300;}
+.school_com{width:730px;height: auto;float:left;text-align: left;}
+.com-detail{width: 730px;height: 25px;float:left;text-align: left;}
+.jobPostion{width: 730px;height: auto;float:left;text-align: left;}
+.title11{width: 80px;height: 25px;float:left;text-align: left;text-align: left;}
+.jopName{width: 590px;height: auto;float:left;text-align: left;}
+/* 职业技能 */
+.edu{width: 730px;height: auto;margin: 0 auto;text-align: left;margin-top: 10px;overflow: hidden;margin-bottom: 10px;}
+.edu_title{width:730px;height: 30px;float:left;text-align: left;font-weight: 900;color: #ff5300;font-size: 16px;}
+.job_com-skil{width:730px;height: auto;float:left;text-align: left;font-size: 15px;}
+.com-detail{width: 730px;height: 25px;float:left;text-align: left;font-weight: 800}
+.jobPostion{width: 730px;height: auto;float:left;text-align: left;margin-bottom: 10px}
+.title11{width: 80px;height: 25px;float:left;text-align: left;text-align: left;}
+.jopName{width: 590px;height: auto;float:left;text-align: left;font-size: 15px;}

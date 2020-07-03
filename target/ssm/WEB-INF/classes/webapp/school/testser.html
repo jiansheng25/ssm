@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+    <script src="../js/mainJs.js"></script>
+    <script src="../js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#iii").click(function() {
+                $.ajax({
+                    type: "POST",                            //传数据的方式
+                    url: commomPath+"tesServlet", //servlet地址
+                    data: {
+                        password:$("text").val(),
+                        account:$("password").val()
+                    },
+                    datatype:"json",
+                    success: function(data){ //传数据成功之后的操作
+                       var ss="12";
+                       var aa=$.parseJSON(data);
+                        $.each(aa, function (index, item) {
+                            //循环获取数据
+                            var name = aa[index].id;
+                            var idnumber = aa[index].name;
+                            $("table").append("<tr><td>"+name+"剑"+"+</td>+"+"<td>"+idnumber+
+                                "</td><td><input type='button' onclick='you("+name+")' value='你是'/></td></tr>");
+                        });
+                    },
+                    error : function()
+                    {
+                        alert("信息传输发生错误！");
+                    }
+                })
+            });
+        })
+        function you(id){
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <table>
+        <tr><th>Header</th></tr>
+        <tr><td>Data</td><td>12321</td></tr>
+        <tr><td>Data</td><td>12321</td></tr>
+        </table>
+        <input id="iii" type="button" value="你是">
+    </form>
+</body>
+</html>

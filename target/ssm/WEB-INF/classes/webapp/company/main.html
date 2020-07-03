@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>企业主页</title>
+    <link rel="stylesheet" type="text/css" href="../css/company/main.css"/>
+    <script src="../js/mainJs.js"></script>
+    <script src="../js/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            tiaozhuan2();
+            getCompany();
+            updateCompany();
+        });
+        function tiaozhuan() {
+            window.location.href="comlogin.html";
+        };
+        function tiaozhuan2() {
+            $("#xinxi").click(function () {
+                window.location.href="main.html";
+            });
+            $("#postRecriutment").click(function () {
+                window.location.href="postRecriutment.html";
+            });
+            $("#recriutManager").click(function () {
+                window.location.href="recriutManager.html";
+            });
+            $("#passwordManager").click(function () {
+                window.location.href="passwordManager.html";
+            });
+            $("#applyManager").click(function () {
+                window.location.href="applyManager.html";
+            });
+        }
+    </script>
+</head>
+<body>
+<form>
+    <div id="main">
+        <div class="top">
+            <div class="top1">
+                <img src="../img/5454545.PNG" height="50px" width="50px" onclick="tiaozhuan()" >
+            </div>
+            <div class="top2">
+                江海大校园招聘平台企业端
+            </div>
+            <div class="top33">
+                <div class="top44">
+
+                </div>
+                <div class="top45">
+                    <div class="top3">
+                        <img class="tu" src="../img/111111.png" id="ddd" >
+                    </div>
+                    <div class="top4">
+                        <a href="comlogin.html" style="color:#bcbdcf ;font-size: 11px;">退出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btttom">
+            <div class="left">
+                <div class="left3"></div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" id="xinxi" type="button" name="" value="企业信息" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" id="postRecriutment" type="button" name="" value="招聘发布" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" type="button" name="" id="recriutManager" value="职位管理" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" type="button" name="" id="applyManager" value="应聘处理" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" type="button" name="" id="passwordManager" value="密码管理" />
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="rtop">
+                    <div class="rtopp">
+                         <input class="rbtn" type="button" value="提交" >
+                        <div class="top-title">企业信息管理</div>
+                        <div class="status">企业资质：待审核，不可以进行招聘</div>
+
+                        <div class="top-btn"><input class="rbtn" type="button" value="发布" ></div>
+<!--                        <input class="rbtn" type="button" value="发布" >-->
+                    </div>
+                    <div class="rtopb">
+                        <div class="rtopbl">
+                            <div class="rtopbl1">
+                                <div class="rtopb111">
+                                    <label style="color: red;font-size: 10px"> *</label> 企业名称:
+                                </div>
+                                <div class="rtopbl12">
+                                    <input class="btn11l11" type="text" id="name" style="border-color:#fbfbfb " >
+                                </div>
+                            </div>
+                            <div class="rtopbl1">
+                                <div class="rtopb111">
+                                    <label style="color: red;font-size: 10px"> *</label> 企业地址:
+                                </div>
+                                <div class="rtopbl12">
+                                    <input class="btn11l11" type="text" id="adress" style="border-color:#fbfbfb " >
+                                </div>
+                            </div>
+                            <div class="rtopbl1">
+                                <div class="rtopb111">
+                                    <label style="color: red;font-size: 10px"> *</label>企业电话:
+                                </div>
+                                <div class="rtopbl12">
+                                    <input class="btn11l11" type="text" id="phone" style="border-color:#fbfbfb " >
+                                </div>
+                            </div>
+                            <div class="rtopbl1">
+                                <div class="rtopb111">
+                                    <label style="color: red;font-size: 10px"> *</label>企业邮箱:
+                                </div>
+                                <div class="rtopbl12">
+                                    <input class="btn11l11" type="text" id="email" style="border-color:#fbfbfb " >
+                                </div>
+                            </div>
+                            <div class="rtopbl1">
+                                <div class="rtopb111">
+                                  <label style="color: red;font-size: 10px"> *</label> 企业性质:
+                                </div>
+                                <div class="rtopbl12">
+                                    <select class="btn11l11" id="xingzhi" >
+                                        <option value ="民营企业">民营企业</option>
+                                        <option value ="事业单位">事业单位</option>
+                                        <option value="国企">国企</option>
+                                        <option value="外资企业">外资企业</option>
+                                        <option value ="中外合资">中外合资</option>
+                                    </select>
+<!--                                    <input class="btn11l11" type="text" id="xingzhi" style="border-color:#fbfbfb " >-->
+                                </div>
+                            </div>
+                            <div class="rtopbl1">
+                                <div class="rtopb111">
+                                    <label style="color: red;font-size: 10px"> *</label>企业类型:
+                                </div>
+                                <div class="rtopbl12">
+                                    <select class="btn11l11" id="companytype" >
+                                        <option value ="互联网|计算机">互联网|计算机</option>
+                                        <option value ="金融|银行">金融|银行</option>
+                                        <option value="保险">保险</option>
+                                        <option value="医疗">医疗</option>
+                                        <option value ="物流运输">物流运输</option>
+                                        <option value ="化工|能源">化工|能源</option>
+                                        <option value ="服务业">服务业</option>
+                                        <option value="政府">政府</option>
+                                        <option value="媒体|广告">媒体|广告</option>
+                                        <option value=其他">其他</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="rtopbl1">
+                                <div class="rtopb111">
+                                    <label style="color: red;font-size: 10px"> *</label>企业规模:
+                                </div>
+                                <div class="rtopbl12">
+                                    <select class="btn11l11" id="renshu">
+                                        <option value ="1~50人">1~50人</option>
+                                        <option value ="50~100人">50~100人</option>
+                                        <option value="100~500人">100~500人</option>
+                                        <option value="500~1000人">500~1000人</option>
+                                        <option value ="1000人以上">1000人以上</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rtopbr">
+                            <div class="rtopbr1">
+                                <div class="rtopbr11">
+                                    <label style="color: red;font-size: 10px"> *</label> 企业待遇：
+                                </div>
+                                <div class="rtopbr12">
+                                    <textarea class="rtopbr1t" id="treatment"></textarea>
+                                </div>
+                            </div>
+                            <div class="rtopbr2">
+                                <div class="rtopbr21">
+                                    <label style="color: red;font-size: 10px"> *</label>企业简介：
+                                </div>
+                                <div class="rtopbr22">
+                                    <textarea class="rtopbr2t" id="companyInfo"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rbton">
+                    版权所有：个人毕业设计
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>
+<script type="text/javascript">
+    function getCompany() {
+        $.ajax({
+            type: "post",                            //传数据的方式
+            url: commomPath+"getCompanyServlet", //servlet地址
+            data: {
+            },
+            datatype:"json",
+            success: function(data){ //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                var com=$.parseJSON(data);
+                $("#name").val(com[0].name);
+                $("#adress").val(com[0].adress);
+                $("#phone").val(com[0].phone);
+                $("#email").val(com[0].email);
+                $("#xingzhi").val(com[0].xingzhi);
+                $("#companytype").val(com[0].companyType);
+                $("#renshu").val(com[0].renshu);
+                $("#treatment").val(com[0].treatment);
+                $("#companyInfo").val(com[0].companyInfo);
+                $(".top44").text(com[0].name);
+
+                if(com[0].status1=="已通过"){
+                    $(".status").text("企业资质：已通过,可以开展招聘")
+                }else {
+                    $(".status").text("企业资质：待审核,还不能展开招聘")
+                }
+            },
+            error : function()
+            {
+                alert("信息传输发生错误！");
+            }
+        });
+    }
+    function updateCompany() {
+        $(".rbtn").click(function() {
+            if($("#name").val()==""
+                ||$("#adress").val()==""
+                ||$("#phone").val()==""
+                ||$("#email").val()==""
+                ||$("#xingzhi").val()==""
+                ||$("#companytype").val()==""
+                ||$("#renshu").val()==""
+                ||$("#treatment").val()==""
+                ||$("#companyInfo").val()==""){
+                alert("请输入必填信息!");
+                return;
+            }
+            $.ajax({
+                type: "POST",                            //传数据的方式
+                url: commomPath+"updateCompanyServlet", //servlet地址
+                data: {
+                    name:$("#name").val(),
+                    adress:$("#adress").val(),
+                    email:$("#email").val(),
+                    xingzhi:$("#xingzhi").val(),
+                    companyType:$("#companytype").val(),
+                    renshu:$("#renshu").val(),
+                    treatment:$("#treatment").val(),
+                    companyInfo:$("#companyInfo").val(),
+                },
+                success: function(data){ //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                    if(data=="1"){
+                        alert("更新信息成功");
+                    }else {
+                        alert("更新失败");
+                    }
+                },
+                error : function()
+                {
+                    alert("信息传输错误！");
+                }
+            })
+        });
+    }
+</script>

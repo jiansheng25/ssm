@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test11</title>
+    <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../js/mainJs.js"></script>
+    <script>
+       $(document).ready(function () {
+           $.ajax({
+               type: "post",                            //传数据的方式
+               url: commomPath+"account/getlist", //servlet地址
+               data: {
+
+               },
+               datatype:"json",
+               success: function(data){ //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                   var com=$.parseJSON(data);
+                   console.log(com)
+                   for(i in com){
+                       var c=com[i];
+                       var html=" <li>'"+c.applyId+"'</li>";
+                       $("#aa").append(html);
+                   }
+
+
+               },
+               error : function()
+               {
+                   alert("信息传输发生错误！");
+               }
+           });
+       })
+    </script>
+</head>
+<body>
+    <div id="aa">
+
+        <li>aaaasad</li>
+
+    </div>
+</body>
+</html>

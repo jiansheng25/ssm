@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>校方主页</title>
+    <script src="../js/mainJs.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/school/addStudent.css"/>
+    <script src="../js/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            load1();
+            tiaozhuan2();
+            init()
+        });
+        function init() {
+            $.ajax({
+                type: "POST",                            //传数据的方式
+                url: commomPath + "getAllXueyuanServlet", //servlet地址getEmploymentForComServlet
+                data: {
+                },
+                success: function (data) { //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                    var list = $.parseJSON(data);
+                    $("#xueyuanListForclass").html("");
+                    $("#xueyuanListForstu").html("");
+
+                    $("#xueyuanListForstu").append($("<option value=\"0\">－请选择学院－</option>"));
+                    $("#xueyuanListForclass").append($("<option value=\"0\">－请选择学院－</option>"));
+                    $("#classList").append($("<option value=\"0\">－请选择班级－</option>"));
+                    $.each(list, function (i, n) {
+                        $("#xueyuanListForclass").append($("<option value=\"" + n.xyId + "\">" + n.xyName + "</option>"));
+                        $("#xueyuanListForstu").append($("<option value=\"" + n.xyId + "\">" + n.xyName + "</option>"));
+                    });
+                },
+                error: function () {
+                    alert("信息传输错误！");
+                }
+            })
+        }
+        function getZhaoPinTitle(index) {
+            var index1 = index
+            $.ajax({
+                type: "POST",                            //传数据的方式
+                url: commomPath + "getAllXuanTitleServlet", //servlet地址getEmploymentForComServlet
+                data: {
+                    pageIndex: index1,
+                },
+                success: function (data) { //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                    var list = $.parseJSON(data);
+                    $("#zphList").html("");
+                    $("#zphList").append($("<option value=\"0\">－请选择招聘会－</option>"));
+                    $.each(list, function (i, n) {
+                        var item1 = "<div class='all-tr'>" +
+                            "<div class='all-tr-tr1' >"
+                            + "<input class='input-change' id='n" + n.zphId + "name' readonly='readonly'  value='" + n.zhaoname + "'>" +
+                            "</div>" +
+                            "<div class='all-tr-tr2' >"
+                            + "<input class='input-change' id='n" + n.zphId + "location' readonly='readonly'  value='" + n.location + "'>" +
+                            "</div>" +
+                            "<div class='all-tr-tr2'>"
+                            + "<input class='input-change'  id='n" + n.zphId + "time' readonly='readonly'  value='" + n.time1 + "'>" +
+                            "</div>" +
+                            "<div class='all-tr-tr2' style='padding-top: 5px;height: 25px'>" +
+                            "<div class='all-save-edit'>" +
+                            "<input class='manager-btnSave' id='n" + n.zphId + "save'  type='button' onclick=\"saveZph('" + n.zphId + "')\"  value='保存'>" +
+                            "<input class='manager-btnEdit' id='n" + n.zphId + "edit'  type='button'  onclick=\"editZph('" + n.zphId + "')\" value='修改'></div>" +
+                            "<div class='all-delete'>" +
+                            "<input class='manager-btnDelete' type='button' onclick=\"deleteZhaoTitle('" + n.zphId + "')\" value='删除'> </div></div>";
+                        $(".manager-all-all").append(item1);
+
+
+                        $("#zphList").append($("<option value=\"" + n.zphId + "\">" + n.zhaoname + "</option>"));
+                    });
+                },
+                error: function () {
+                    alert("信息传输错误！");
+                }
+            })
+        }
+
+        function addXueyuan() {
+            $(".choose-btn-stu").css("background-color", "#f2f2f2");
+            $(".choose-btn-xueyuan").css("background-color", "#ffffff");
+            $(".choose-btn-class").css("background-color", "#f2f2f3");
+            $(".add_student").css("display", "none");
+            $(".add_xueyuan").css("display", "block");
+            $(".add_class").css("display", "none");
+        }
+        function addStudent1(){
+            $(".choose-btn-stu").css("background-color", "#ffffff");
+            $(".choose-btn-xueyuan").css("background-color", "#f2f2f2");
+            $(".choose-btn-class").css("background-color", "#f2f2f3");
+            $(".add_student").css("display", "block");
+            $(".add_xueyuan").css("display", "none");
+            $(".add_class").css("display", "none");
+        }
+        function addClass() {
+            $(".choose-btn-stu").css("background-color", "#f2f2f2");
+            $(".choose-btn-xueyuan").css("background-color", "#f2f2f2");
+            $(".choose-btn-class").css("background-color", "#ffffff");
+            $(".add_student").css("display", "none");
+            $(".add_xueyuan").css("display", "none");
+            $(".add_class").css("display", "block");
+        }
+        function addStudentBtn() {
+            console.log($("#age").val());
+            console.log($("#classList").val());
+            if($("#xueyuanListForstu").val()==0||$("#xueyuanListForstu").val()=="0"){
+                alert("请选择学院");return;
+            }
+            if($("#classList").val()==0||$("#classList").val()=="0"){
+                alert("请选择班级");return;
+            }
+            if($("#stuAccount").val()==""||$("#stuName").val()==""||
+                $("#genderList").val()==""||$("#age").val()==""||$("#stuPwd").val()==""){
+                alert("请输入完整信息！");return;
+            }
+            $.ajax({
+                type: "POST",
+                url: commomPath + "addStudentServlet", //servlet地址
+                data: {
+                    className:$("#classList").val(),
+                    stuName:$("#stuName").val(),
+                    stuAccount:$("#stuAccount").val(),
+                    gender:$("#genderList").val(),
+                    age:$("#age").val(),
+                    stuPwd:$("#stuPwd").val()
+                },
+                success: function (data) { //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                    if (data == "1") {
+                        alert("添加成功！");
+                    } else if(data=="2"){
+                        alert("学号已存在！");
+                    }else {alert("添加失败！");}
+                },
+                error: function () {
+                    alert("信息传输错误！");
+                }
+            })
+        }
+        function addClassBtn() {
+            if($("#xueyuanListForclass").val()==0||$("#xueyuanListForclass").val()=="0"){
+                alert("请选择学院");return;
+            }
+            if($("#class1").val()==""){
+                alert("请输入班级名称");
+                return;
+            }
+            console.log($("#xueyuanListForclass").val());
+            $.ajax({
+                type: "POST",
+                url: commomPath + "addClassServlet", //servlet地址
+                data: {
+                    className: $("#class1").val(),
+                    xyId:$("#xueyuanListForclass").val()
+                },
+                success: function (data) { //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                    if (data == "1") {
+                        alert("添加成功！");
+                    } else {
+                        alert("添加失败！");
+                    }
+                },
+                error: function () {
+                    alert("信息传输错误！");
+                }
+            })
+        }
+        function addXueyuanBtn() {
+            if($("#xyName1").val()==""){
+                alert("请输入学院名称");
+                return;
+            }
+            $.ajax({
+                type: "POST",
+                url: commomPath + "addXueyuanServlet", //servlet地址
+                data: {
+                    xyName: $("#xyName1").val()
+                },
+                success: function (data) { //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                    if (data == "1") {
+                        alert("添加成功！");
+                    } else {
+                        alert("添加失败！");
+                    }
+                },
+                error: function () {
+                    alert("信息传输错误！");
+                }
+            })
+        }
+        function getClassByXyId(){
+            console.log($("#xueyuanListForstu").val())
+            $.ajax({
+                type: "POST",                            //传数据的方式
+                url: commomPath + "getClassByXyIdServlet", //servlet地址getEmploymentForComServlet
+                data: {
+                    xyId:$("#xueyuanListForstu").val()
+                },
+                success: function (data) { //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                    var list = $.parseJSON(data);
+                    $("#classList").html("");
+
+                    $.each(list, function (i, n) {
+                        $("#classList").append($("<option value=\"" + n.className + "\">" + n.className + "</option>"));
+                    });
+                },
+                error: function () {
+                    alert("信息传输错误！");
+                }
+            })
+        }
+        function postXuanTitle() {
+            if ($("#zhaoname").val() == "" || $("#location").val() == "" || $("#date2").val() == "") {
+                alert("请输入完整信息");
+                return;
+            }
+            $.ajax({
+                type: "POST",
+                url: commomPath + "postZhaopinhuiServlet", //servlet地址
+                data: {
+                    location: $("#location").val(),
+                    zhaoname: $("#zhaoname").val(),
+                    time1: $("#date2").val() + " " + $("#time2").val()
+                },
+                success: function (data) { //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                    if (data == "1") {
+                        alert("添加成功！");
+                        $(".manager-all-all").empty();
+                        getZhaoPinTitle(1)
+                    } else {
+                        alert("添加失败！");
+                    }
+                },
+                error: function () {
+                    alert("信息传输错误！");
+                }
+            })
+        }
+
+        function deleteZhaoTitle(zhpId) {
+            if (confirm("确认删除吗？")) {
+                $.ajax({
+                    type: "POST",
+                    url: commomPath + "deleteZhaoTitleServlet", //servlet地址
+                    data: {
+                        zphId: zhpId
+                    },
+                    success: function (data) { //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                        if (data == "1") {
+                            alert("删除成功！");
+                            $(".manager-all-all").empty();
+                            getZhaoPinTitle(1)
+                        } else {
+                            alert("删除失败！");
+                        }
+                    },
+                    error: function () {
+                        alert("信息传输错误！");
+                    }
+                })
+            }
+        }
+
+        function editZph(zphId) {
+
+            var name = "#n" + zphId + "name";
+            var location = "#n" + zphId + "location";
+            var time = "#n" + zphId + "time";
+            // alert(name+location+time)
+            $(name).removeAttr("readonly");
+            $(location).removeAttr("readonly");
+            $(time).removeAttr("readonly");
+            $(name).css("background-color", "#ffffff");
+            $(location).css("background-color", "#ffffff");
+            $(time).css("background-color", "#ffffff");
+            $("#n" + zphId + "edit").css("display", "none");
+            $("#n" + zphId + "save").css("display", "block");
+        }
+
+        function saveZph(zphId) {
+
+            var name = "#n" + zphId + "name";
+            var location = "#n" + zphId + "location";
+            var time = "#n" + zphId + "time";
+            // alert(name+location+time)
+            $(name).attr({"readonly": "readonly"});
+            $(location).attr({"readonly": "readonly"});
+            $(time).attr({"readonly": "readonly"});
+            $(name).css("background-color", "#f2f2f2");
+            $(location).css("background-color", "#f2f2f2");
+            $(time).css("background-color", "#f2f2f2");
+            $(time).css("background-color", "#f2f2f2");
+
+
+            if ($(name).val() == "" || $(location).val() == "" || $(time).val() == "") {
+                alert("请输入完整信息");
+                return;
+            }
+            $.ajax({
+                type: "POST",
+                url: commomPath + "updateZphTitleServlet", //servlet地址
+                data: {
+                    location: $(location).val(),
+                    zhaoname: $(name).val(),
+                    time1: $(time).val(),
+                    zphId: zphId
+                },
+                success: function (data) { //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                    if (data == "1") {
+                        $("#n" + zphId + "edit").css("display", "block");
+                        $("#n" + zphId + "save").css("display", "none");
+                    } else {
+                        alert("保存失败！");
+                    }
+                },
+                error: function () {
+                    alert("信息传输错误！");
+                }
+            })
+        }
+
+        function addCompanyForZph() {
+            if($("#name").val()==""||$("#address").val()==""||
+                $("#email").val()==""||$("#postions").val()==""||
+                $("#requireNumber").val()==""||$("#majors").val()==""||
+                $("#phone").val()==""||$("#companyInfo").val()==""){
+                alert("请输入必填项！");
+                return;
+            }
+            var emailVal=/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+            var phoneVal=/^1[3456789]\d{9}$/;
+            if(!emailVal.test($("#email").val())){
+                alert("邮箱格式不对");
+                return;
+            }
+            if(!phoneVal.test($("#phone").val())){
+                alert("电话格式不对！");
+                return;
+            }
+            $.ajax({
+                type: "POST",
+                url: commomPath + "addCompanyForZphServlet", //servlet地址
+                data: {
+                    companyName: $("#companyName").val(),
+                    address: $("#address").val(),
+                    email: $("#email").val(),
+                    postions:$("#postions").val(),
+                    requireNumber: $("#requireNumber").val(),
+                    majors: $("#majors").val(),
+                    phone: $("#phone").val(),
+                    companyInfo:$("#companyInfo").val(),
+                    zphId:$("#zphList").val()
+                },
+                success: function (data) { //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                    if (data == "1") {
+                        alert("发布成功！");
+                    } else {
+                        alert("发布失败！");
+                    }
+                },
+                error: function () {
+                    alert("信息传输错误！");
+                }
+            })
+        }
+
+    </script>
+</head>
+<body>
+<form>
+    <div id="main">
+        <div class="top">
+            <div class="top1">
+                <img src="../img/5454545.PNG" height="50px" width="50px" onclick="tiaozhuan()" >
+            </div>
+            <div class="top2">
+                江海大校园招聘平台学校端
+            </div>
+            <div class="top33">
+                <div class="top44">
+
+                </div>
+                <div class="top45">
+                    <div class="top3">
+                        <img class="tu" src="../img/111111.png" id="ddd" >
+                    </div>
+                    <div class="top4">
+                        <a href="schoollogin.html" style="color:#bcbdcf ;font-size: 11px;">退出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btttom">
+            <div class="left">
+                <div class="left3"></div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" id="postXuan" type="button" name="" value="发布宣讲会" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" id="xuanjianManager" type="button" name="" value="宣讲会管理" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" id="postZhan" type="button" name="" value="招聘会" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" type="button" name="" id="postion" value="发布职位" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" type="button" name="" id="applyManager" value="招聘管理" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" type="button" name="" id="recriutManager" value="职位管理" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" id="companyManager" type="button" name="" value="企业管理" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" type="button" name="" id="studentManager" value="学生管理" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" type="button" name="" id="addStudent" value="学生录入" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" type="button" name="" id="passwordManager" value="密码管理" />
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="rtop">
+                    <div class="rtopb">
+                        <div class="choose">
+                            <div class="choose-stu">
+                                <input class="choose-btn-stu" type="button" onclick="addStudent1()" value="学生录入">
+                            </div>
+                            <div class="choose-class">
+                                <input class="choose-btn-class" type="button" onclick="addClass()" value="班级录入">
+                            </div>
+                            <div class="choose-xueyuan">
+                                <input class="choose-btn-xueyuan" type="button" onclick="addXueyuan()" value="学院录入">
+                            </div>
+                        </div>
+                        <div class="add_student">
+                            <div class="add_xueyuan_item"></div>
+                            <div class="add_xueyuan_item">
+                                <select id="xueyuanListForstu" onchange="getClassByXyId()"></select>
+                            </div>
+                            <div class="add_xueyuan_item">
+                                <select id="classList"></select>
+                            </div>
+                            <div class="add_xueyuan_item"><input class="item_text" type="text" id="stuName" placeholder="请输入姓名"></div>
+                            <div class="add_xueyuan_item"><input class="item_text" type="text" id="stuAccount" placeholder="请输入学号"></div>
+                            <div class="add_xueyuan_item"><input class="item_text" type="text" id="stuPwd" placeholder="设置学生登陆密码"></div>
+                            <div class="add_xueyuan_item">
+                                <select id="genderList">
+                                    <option value="男">男</option>
+                                    <option value="女">女</option>
+                                </select>
+                            </div>
+                            <div class="add_xueyuan_item">出生日期：
+                                <input class="item_text" id="age" style="width: 220px" type="date" placeholder="请选择学生生日">
+                            </div>
+                            <div class="add_xueyuan_item"><input class="item_btn" type="button" onclick="addStudentBtn()" value="确认添加"></div>
+                        </div>
+                        <div class="add_class">
+                            <div class="add_xueyuan_item"></div>
+                            <div class="add_xueyuan_item">
+                                <select id="xueyuanListForclass"></select>
+                            </div>
+                            <div class="add_xueyuan_item"><input class="item_text" type="text" id="class1" placeholder="请输入班级名称"></div>
+                            <div class="add_xueyuan_item"><input class="item_btn" type="button" onclick="addClassBtn()" value="确认添加"></div>
+                        </div>
+                        <div class="add_xueyuan">
+                            <div class="add_xueyuan_item"></div>
+                            <div class="add_xueyuan_item"><input class="item_text" type="text" id="xyName1" placeholder="请输入学院名称"></div>
+                            <div class="add_xueyuan_item"><input class="item_btn" type="button" onclick="addXueyuanBtn()" value="确认添加"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="rbton">
+                    版权所有：个人毕业设计
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>
+<script type="text/javascript">
+    function tiaozhuan() {
+        window.location.href = "comlogin.html";
+    };
+
+    function tiaozhuan2() {
+        $("#postZhan").click(function () {
+            window.location.href = "postZhanpinhui.html";
+        })
+        $("#postXuan").click(function () {
+            window.location.href = "main.html";
+        })
+        $("#companyManager").click(function () {
+            window.location.href = "companyManager.html";
+        })
+        $("#studentManager").click(function () {
+            window.location.href = "studentManager.html";
+        })
+        $("#recriutManager").click(function () {
+            window.location.href = "recriutManager.html";
+        })
+        $("#passwordManager").click(function () {
+            window.location.href = "passwordManager.html";
+        })
+        $("#addStudent").click(function () {
+            window.location.href = "addStudent.html";
+        })
+        $("#postion").click(function () {
+            window.location.href = "postion.html";
+        })
+        $("#applyManager").click(function () {
+            window.location.href = "applyManager.html";
+        })
+        $("#xuanjianManager").click(function () {
+            window.location.href = "xuanjianManager.html";
+        })
+    }
+
+    function load1() {//获取当前管理员
+        $.ajax({
+            type: "POST",                            //传数据的方式
+            url: commomPath + "sc/scInfo", //servlet地址
+            data: {},
+            datatype: "json",
+            success: function (data) { //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                var schoolJson = $.parseJSON(data);
+                $(".top44").text(schoolJson.name);
+            },
+            error: function () {
+                alert("信息传输发生错误！");
+            }
+        })
+    }
+</script>

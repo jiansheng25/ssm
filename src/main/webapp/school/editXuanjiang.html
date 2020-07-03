@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>校方主页</title>
+    <script src="../js/mainJs.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/school/main.css"/>
+    <script src="../js/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.cookie.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            load1();
+            updateXuanjianghui();
+            tiaozhuan2();
+            getXuanjiang()
+        });
+
+    </script>
+</head>
+<body>
+<form>
+    <div id="main">
+        <div class="top">
+            <div class="top1">
+                <img src="../img/5454545.PNG" height="50px" width="50px" onclick="tiaozhuan()" >
+            </div>
+            <div class="top2">
+                江海大校园招聘平台学校端
+            </div>
+            <div class="top33">
+                <div class="top44">
+
+                </div>
+                <div class="top45">
+                    <div class="top3">
+                        <img class="tu" src="../img/111111.png" id="ddd" >
+                    </div>
+                    <div class="top4">
+                        <a href="schoollogin.html" style="color:#bcbdcf ;font-size: 11px;">退出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btttom">
+            <div class="left">
+                <div class="left3"></div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" id="postXuan" type="button" name="" value="发布宣讲会" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" id="xuanjianManager" type="button" name="" value="宣讲会管理" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" id="postZhan" type="button" name="" value="招聘会" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" type="button" name="" id="postion" value="发布职位" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" type="button" name="" id="applyManager" value="招聘管理" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" type="button" name="" id="recriutManager" value="职位管理" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" id="companyManager" type="button" name="" value="企业管理" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" type="button" name="" id="studentManager" value="学生管理" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" type="button" name="" id="addStudent" value="学生录入" />
+                    </div>
+                </div>
+
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" type="button" name="" id="passwordManager" value="密码管理" />
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="rtop">
+                    <div class="rtopp">
+                        <div class="top-title">修改宣讲会</div>
+                        <div class="top-btn"><input class="rbtn" type="button" value="修改" ></div>
+
+                    </div>
+                    <div class="rtopb">
+                        <div class="rtopbl">
+                            <div class="rtopbl1">
+                                <div class="rtopb111">
+                                    <label style="color: red;font-size: 10px"> *</label>企业名称:
+                                </div>
+                                <div class="rtopbl12">
+                                    <input class="btn11l11" type="text" id="name" style="border-color:#fbfbfb " >
+                                </div>
+                            </div>
+                            <div class="rtopbl1">
+                                <div class="rtopb111">
+                                    <label style="color: red;font-size: 10px"> *</label>企业地址:
+                                </div>
+                                <div class="rtopbl12">
+                                    <input class="btn11l11" type="text" id="adress" style="border-color:#fbfbfb " >
+                                </div>
+                            </div>
+                            <div class="rtopbl1">
+                                <div class="rtopb111">
+                                    <label style="color: red;font-size: 10px"> *</label>企业邮箱:
+                                </div>
+                                <div class="rtopbl12">
+                                    <input class="btn11l11" type="text" id="email" style="border-color:#fbfbfb " >
+                                </div>
+                            </div>
+                            <div class="rtopbl1">
+                                <div class="rtopb111">
+                                    <label style="color: red;font-size: 10px"> *</label>宣讲地点:
+                                </div>
+                                <div class="rtopbl12">
+                                    <input class="btn11l11" type="text" id="location" style="border-color:#fbfbfb " >
+                                </div>
+                            </div>
+                            <div class="rtopbl1">
+                                <div class="rtopb111">
+                                    <label style="color: red;font-size: 10px"> *</label>招聘流程:
+                                </div>
+                                <div class="rtopbl12">
+                                    <input class="btn11l11" type="text" id="process" style="border-color:#fbfbfb " >
+                                </div>
+                            </div>
+                            <div class="rtopbl1">
+                                <div class="rtopb111">
+                                    <label style="color: red;font-size: 10px"> *</label>宣讲时间:
+                                </div>
+                                <div class="rtopbl12">
+                                    <input class="btn11l11" type="text" id="time1" style="border-color:#fbfbfb " >
+                                </div>
+                            </div>
+                            <div class="rtopbl1">
+                                <div class="rtopb111">
+                                    <label style="color: red;font-size: 10px"> *</label>企业性质:
+                                </div>
+                                <div class="rtopbl12">
+                                    <select class="btn11l11" id="xingzhi" >
+                                        <option value ="民营企业">民营企业</option>
+                                        <option value ="事业单位">事业单位</option>
+                                        <option value="国企">国企</option>
+                                        <option value="外资企业">外资企业</option>
+                                        <option value ="中外合资">中外合资</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="rtopbl1">
+                                <div class="rtopb111">
+                                    <label style="color: red;font-size: 10px"> *</label>企业类型:
+                                </div>
+                                <div class="rtopbl12">
+                                    <select class="btn11l11" id="companytype" >
+                                        <option value ="互联网|计算机">互联网|计算机</option>
+                                        <option value ="金融|银行">金融|银行</option>
+                                        <option value="保险">保险</option>
+                                        <option value="医疗">医疗</option>
+                                        <option value ="物流运输">物流运输</option>
+                                        <option value ="化工|能源">化工|能源</option>
+                                        <option value ="服务业">服务业</option>
+                                        <option value="政府">政府</option>
+                                        <option value="广告">媒体</option>
+                                        <option value=其他">其他</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="rtopbl1">
+                                <div class="rtopb111">
+                                    <label style="color: red;font-size: 10px"> *</label>企业规模:
+                                </div>
+                                <div class="rtopbl12">
+                                    <select class="btn11l11" id="renshu">
+                                        <option value ="1~50人">1~50人</option>
+                                        <option value ="50~100人">50~100人</option>
+                                        <option value="100~500人">100~500人</option>
+                                        <option value="500~1000人">500~1000人</option>
+                                        <option value ="1000人以上">1000人以上</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rtopbr">
+<!--                            <div class="rtopbr1">-->
+<!--                                <div class="rtopbr11">-->
+<!--                                    企业简介：-->
+<!--                                </div>-->
+<!--                                <div class="rtopbr12">-->
+<!--                                    <textarea class="rtopbr1t" id="companyInfo" ></textarea>-->
+<!--                                </div>-->
+<!--                            </div>-->
+                            <div class="rtopbr2">
+                                <div class="rtopbrf1">
+<!--                                    <div class="rtopbrf1f">-->
+<!--                                        <div class="rtopbrf11">-->
+<!--                                            招聘职位：-->
+<!--                                        </div>-->
+<!--&lt;!&ndash;                                        <div class="rtopbrf12">&ndash;&gt;-->
+<!--&lt;!&ndash;                                          <input type="text" class="btn1f" id="jobPostion" style="border-color:#fbfbfb ">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
+<!--                                        <div class="rtopbrf12">-->
+<!--                                            <textarea class="btn1f" id="jobPostion" style="height: 200px;border-color:#fbfbfb"></textarea>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                    <div class="rtopbrf1f" style="height: 230px">
+                                        <div class="rtopbrf11">
+                                            <label style="color: red;font-size: 10px"> *</label>招聘职位：
+                                        </div>
+                                        <div class="rtopbrf12">
+                                            <textarea class="btn1f" id="jobPostion" style="height: 200px;border-color:#fbfbfb"></textarea>
+                                        </div>
+                                    </div>
+<!--                                    <div class="rtopbrf1f">-->
+<!--                                        <div class="rtopbrf11">-->
+<!--                                            <label style="color: red;font-size: 10px"> *</label>需求人数：-->
+<!--                                        </div>-->
+<!--                                        <div class="rtopbrf12">-->
+<!--                                            <input type="text" class="btn1f" id="number" style="border-color:#fbfbfb ">-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                    <div class="rtopbrf1f" style="height: 230px">
+                                        <div class="rtopbrf11">
+                                            <label style="color: red;font-size: 10px"> *</label>需求专业：
+                                        </div>
+                                        <div class="rtopbrf12">
+                                            <textarea class="btn1f" id="majors" style="height: 200px;border-color:#fbfbfb"></textarea>
+                                        </div>
+                                    </div>
+<!--                                    <input type="button" style="margin-top: 10px;border-radius: 5px" id="add" onclick="addText()" value="添加">-->
+                                </div>
+                                <div class="rtopbrf2">
+                                    <div class="rtopbr21">
+                                        <label style="color: red;font-size: 10px"> *</label>企业简介：
+                                    </div>
+                                    <div class="rtopbr22">
+                                        <textarea class="rtopbr2t" id="companyInfo"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rbton">
+                    版权所有：个人毕业设计
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>
+<script type="text/javascript">
+    function tiaozhuan() {
+        window.location.href="comlogin.html";
+    };
+    function tiaozhuan2() {
+        $("#postZhan").click(function () {
+            window.location.href="postZhanpinhui.html";
+        })
+        $("#postXuan").click(function () {
+            window.location.href="main.html";
+        })
+        $("#companyManager").click(function () {
+            window.location.href="companyManager.html";
+        })
+        $("#studentManager").click(function () {
+            window.location.href="studentManager.html";
+        })
+        $("#recriutManager").click(function () {
+            window.location.href="recriutManager.html";
+        })
+        $("#passwordManager").click(function () {
+            window.location.href="passwordManager.html";
+        })
+        $("#addStudent").click(function () {
+            window.location.href="addStudent.html";
+        })
+        $("#postion").click(function () {
+            window.location.href="postion.html";
+        })
+        $("#applyManager").click(function () {
+            window.location.href="applyManager.html";
+        })
+        $("#xuanjianManager").click(function () {
+            window.location.href="xuanjianManager.html";
+        })
+    }
+    function load1() {//获取当前管理员
+        $.ajax({
+            type: "POST",                            //传数据的方式
+            url: commomPath+"sc/scInfo", //servlet地址
+            data: {
+            },
+            datatype:"json",
+            success: function(data){ //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                var schoolJson=$.parseJSON(data);
+                $(".top44").text(schoolJson.name);
+            },
+            error : function()
+            {
+                alert("信息传输发生错误！");
+            }
+        })
+    }
+    function updateXuanjianghui() {
+
+        $(".rbtn").click(function() {
+            alert("xuanjiangId");
+            if($("#name").val()==""||
+                $("#adress").val()==""||
+                $("#email").val()==""||
+                $("#renshu").val()==""||
+                $("#companyInfo").val()==""||
+                $("#time1").val()==""||
+                $("#location").val()==""||
+                $("#process").val()==""||
+                $("#jobPostion").val==""||
+                $("#majors").val==""){
+                alert("请输入必填信息");
+                return;
+            }
+            $.ajax({
+                type: "POST",                            //传数据的方式
+                url: commomPath+"updateXuanServlet", //servlet地址
+                data: {
+                    name:$("#name").val(),
+                    adress:$("#adress").val(),
+                    email:$("#email").val(),
+                    xingzhi:$("#xingzhi").val(),
+                    companyType:$("#companytype").val(),
+                    renshu:$("#renshu").val(),
+                    companyInfo:$("#companyInfo").val(),
+                    time1:$("#time1").val(),
+                    location:$("#location").val(),
+                    process:$("#process").val(),
+                    postion:$("#jobPostion").val(),
+                    majors:$("#majors").val(),
+                    xuanjiangId:$.cookie("xuanjiangId")
+                },
+                success: function(data){ //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                    if(data=="1"){
+                        alert("修改成功！");
+                    }else {
+                        alert("修改失败！");
+                    }
+                },
+                error : function()
+                {
+                    alert("信息传输错误！");
+                }
+            })
+        });
+    }
+    function getXuanjiang() {
+        $.ajax({
+            type: "post",                            //传数据的方式
+            url: commomPath + "xuanjianghui/findXjhById", //servlet地址
+            data: {
+                xuanjiangId:$.cookie("xuanjiangId")
+            },
+            datatype: "json",
+            success: function (data) { //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                console.log()
+                var com = $.parseJSON(data);
+                console.log(com)
+                $("#name").val(com.name);
+                $("#adress").val(com.adress);
+                $("#email").val(com.email);
+                $("#xingzhi").val(com.xingzhi);
+                $("#companytype").val(com.companyType);
+                $("#renshu").val(com.renshu);
+                $("#companyInfo").val(com.companyInfo);
+                $("#time1").val(com.time1);
+                $("#location").val(com.location);
+                $("#process").val(com.process);
+                $("#jobPostion").val(com.postion);
+                $("#majors").val(com.majors);
+            },
+            error: function () {
+                alert("信息传输发生错误！");
+            }
+        });
+    }
+</script>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>校方主页</title>
+    <script src="../js/mainJs.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/company/recriutManager.css"/>
+    <script src="../js/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.cookie.js" type="text/javascript"></script>
+    <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            load1();
+            tiaozhuan2();
+            var index=1;
+            $("#pre").click(function () {
+                $(".rtopbpb").empty();
+                if(index>=2){
+                    index=index-1;
+                }else {
+                    index=1;
+                }
+                getEmployment(index);
+            });
+            $("#next").click(function () {
+                $(".rtopbpb").empty();
+                index=index+1;
+                getEmployment(index);
+            });
+            $("#one").click(function () {
+                $(".rtopbpb").empty();
+                index=1;
+                getEmployment(index);
+            });
+            getEmployment(index);
+        });
+        function getEmployment(index) {
+            $.ajax({
+                type: "POST",                            //传数据的方式
+                url: commomPath+"xuanjianghui/findAllXjhByPage", //servlet地址getEmploymentForComServlet
+                data: {
+                    pageIndex:index,
+                },
+                success: function(data){ //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                    var list=$.parseJSON(data);
+                    console.log(list)
+                    $.each(list,function(i, n){
+                        var item1="<div class='rtopbpb1'>" +
+                            "<div class='rtopbpb11' style='width: 33%'>" +
+                            n.name+
+                            "</div>"+
+                            "<div class='rtopbpb12' style='width: 25%'>" +
+                            n.time1+
+                            "</div>" +
+                            "<div class='rtopbpb12' style='width: 24%'>" +
+                            n.location+
+                            "</div>" +
+                            "<div class='rtopbpb12' style='width: 17%'>" +
+                            "<input class='edit11' type='button'  onclick=\"editEmployment('"+n.xuanjiangId+"')\" value='编辑'> &nbsp" +
+                            "<input class='delete11' type='button'  onclick=\"deleteEmployment('"+n.xuanjiangId+"')\" value='删除'>" +
+                            "</div>" +
+                            "</div>";
+                        $(".rtopbpb").append(item1);
+                    });
+                },
+                error : function()
+                {
+                    alert("信息传输错误！");
+                }
+            })
+        }
+        function editEmployment(xuanjiangId) {
+            $.cookie("xuanjiangId",xuanjiangId,{path:"/"});
+            window.location.href="editXuanjiang.html";
+        }
+        function deleteEmployment(xuanjiangId) {
+            console.log(xuanjiangId)
+            if(confirm("确定删除吗？")){
+                $.ajax({
+                    type: "POST",                            //传数据的方式
+                    url: commomPath+"xuanjianghui/deleteXjh", //servlet地址
+                    data: {
+                        xuanjiangId:xuanjiangId,
+                    },
+                    success: function(data){ //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                        if(data=="1"){
+                            alert("删除成功！");
+                            $(".rtopbpb").empty();
+                            getEmployment(1);
+                        }else {
+                            alert("删除失败！");
+                        }
+                    },
+                    error : function()
+                    {
+                        alert("信息传输错误！");
+                    }
+                })
+            }
+        }
+    </script>
+</head>
+<body>
+<form>
+    <div id="main">
+        <div class="top">
+            <div class="top1">
+                <img src="../img/5454545.PNG" height="50px" width="50px" onclick="tiaozhuan()" >
+            </div>
+            <div class="top2">
+                江海大校园招聘平台学校端
+            </div>
+            <div class="top33">
+                <div class="top44">
+
+                </div>
+                <div class="top45">
+                    <div class="top3">
+                        <img class="tu" src="../img/111111.png" id="ddd" >
+                    </div>
+                    <div class="top4">
+                        <a href="schoollogin.html" style="color:#bcbdcf ;font-size: 11px;">退出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btttom">
+            <div class="left">
+                <div class="left3"></div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" id="postXuan" type="button" name="" value="发布宣讲会" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" id="xuanjianManager" type="button" name="" value="宣讲会管理" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" id="postZhan" type="button" name="" value="招聘会" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" type="button" name="" id="postion" value="发布职位" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" type="button" name="" id="applyManager" value="招聘管理" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" type="button" name="" id="recriutManager" value="职位管理" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" id="companyManager" type="button" name="" value="企业管理" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" type="button" name="" id="studentManager" value="学生管理" />
+                    </div>
+                </div>
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" type="button" name="" id="addStudent" value="学生录入" />
+                    </div>
+                </div>
+
+                <div class="left1">
+                    <div class="left11">
+                        🏐
+                    </div>
+                    <div class="left12">
+                        <input class="btn1" type="button" name="" id="passwordManager" value="密码管理" />
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="rtop">
+                    <divc class="rtopp">
+                        宣讲会管理
+                    </divc>
+                    <div class="rtopb">
+                        <div class="rtopbp">
+                            <div class="rtopbpp">
+                                <div class="rtopbpp1" style="width: 33%">
+                                    宣讲会名称
+                                </div>
+                                <div class="rtopbpp2" style="width: 25%">
+                                   举办时间
+                                </div>
+                                <div class="rtopbpp3" style="width: 24%">
+                                    地点
+                                </div>
+                                <div class="rtopbpp5" style="width: 17%">
+                                    操作
+                                </div>
+                            </div>
+                            <div class="rtopbpb">
+
+                            </div>
+                        </div>
+                        <div class="rtopbb">
+                            <input class="chosse-page" type="button" id="one" value="首页">
+                            <input class="chosse-page" type="button"  id="pre" value="上一页">
+                            <input class="chosse-page" type="button"  id="next" value="下一页">
+                        </div>
+                    </div>
+                </div>
+                <div class="rbton">
+                    版权所有：个人毕业设计
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>
+<script type="text/javascript">
+    function tiaozhuan() {
+        window.location.href="comlogin.html";
+    };
+    function tiaozhuan2() {
+        $("#postZhan").click(function () {
+            window.location.href="postZhanpinhui.html";
+        })
+        $("#postXuan").click(function () {
+            window.location.href="main.html";
+        })
+        $("#companyManager").click(function () {
+            window.location.href="companyManager.html";
+        })
+        $("#studentManager").click(function () {
+            window.location.href="studentManager.html";
+        })
+        $("#recriutManager").click(function () {
+            window.location.href="recriutManager.html";
+        })
+        $("#passwordManager").click(function () {
+            window.location.href="passwordManager.html";
+        })
+        $("#addStudent").click(function () {
+            window.location.href="addStudent.html";
+        })
+        $("#postion").click(function () {
+            window.location.href="postion.html";
+        })
+        $("#applyManager").click(function () {
+            window.location.href="applyManager.html";
+        })
+        $("#xuanjianManager").click(function () {
+            window.location.href="xuanjianManager.html";
+        })
+    }
+    function load1() {//获取当前管理员
+        $.ajax({
+            type: "POST",                            //传数据的方式
+            url: commomPath+"sc/scInfo", //servlet地址
+            data: {
+            },
+            datatype:"json",
+            success: function(data){ //传数据成功之后的操作   result是servlet传过来的数据  这个函数对result进行处理，让它显示在 输入框中
+                var schoolJson=$.parseJSON(data);
+                $(".top44").text(schoolJson.name);
+            },
+            error : function()
+            {
+                alert("信息传输发生错误！");
+            }
+        })
+    }
+</script>
