@@ -119,6 +119,7 @@ public class SchoolController {
        return  JSONObject.toJSON(stuClasses).toString();
     }
 
+    //a
     //根据学院获取学生
     @ResponseBody
     @RequestMapping("/findStuByXyId")
