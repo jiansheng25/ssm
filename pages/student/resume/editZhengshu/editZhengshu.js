@@ -11,6 +11,7 @@ Page({
   //提交数据
   submitStu: function (e) {
     console.log(e.detail.value.zhengshu+"12345")
+    //jian
     if (e.detail.value.zhengshu == "") {
       wx.showToast({
         title: '内容不能为空',
