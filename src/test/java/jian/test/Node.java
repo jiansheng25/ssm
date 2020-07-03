@@ -8,7 +8,7 @@ public class Node {
     // 右子节点
     public Node rightNode;
 
-    // 值
+    //
     public Object value;
 
     // 插入 数据

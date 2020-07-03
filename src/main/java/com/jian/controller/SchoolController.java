@@ -128,7 +128,7 @@ public class SchoolController {
         return JSONObject.toJSON(students).toString();
     }
 
-    //根据班级获取学生
+    //根据班级获取学
     @ResponseBody
     @RequestMapping("/findStuByClass")
     public String findStuByClass(Integer pageIndex,String stuClass){

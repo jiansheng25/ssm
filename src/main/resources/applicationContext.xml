@@ -48,7 +48,7 @@
             <tx:method name="*" isolation="DEFAULT"/>
         </tx:attributes>
     </tx:advice>
-<!--    配置AOP增强-->
+<!--    配置AOP增强 。-->
     <aop:config>
         <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.jian.service.impl.ApplicationServiceImpl.*(..))"/>
     </aop:config>

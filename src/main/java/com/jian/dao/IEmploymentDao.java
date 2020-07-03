@@ -53,7 +53,7 @@ public interface IEmploymentDao {
     @Select("select * from employment as c left join company as e on c.account=e.account where e.account=#{account} order by postTime desc")
     public List<EmployCompany> findPostionByCompany(String account);
 
-    //查找各个状态已申请的职位
+    //查找各个状态已申请职位
     @Select("select * from application where opendid=#{opendid} and status=#{status}")
     @Results(id="employMap",value = {
             @Result(property = "employId",column = "employId"),

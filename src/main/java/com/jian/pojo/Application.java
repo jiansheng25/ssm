@@ -36,7 +36,7 @@ public class Application implements Serializable {
     public String getApplyTime() {
         return applyTime;
     }
-
+    //格式化日期
     public void setApplyTime(Date applyTime) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yy-MM-dd");
         this.applyTime = dateFormat.format(applyTime);
