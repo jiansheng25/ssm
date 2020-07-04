@@ -6,8 +6,8 @@ import com.jian.pojo.Zph_company;
 import java.util.List;
 
 public interface CompanyService {
-    public List<Zph_company> findCompanyForZphById(int zphId);
+    List<Zph_company> findCompanyForZphById(int zphId);
 
     //
-    public List<Company> getCompany(Integer pageIndex,String status1);
+    List<Company> getCompany(Integer pageIndex,String status1);
 }

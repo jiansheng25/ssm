@@ -5,11 +5,11 @@ import com.jian.pojo.Xuanjianghui;
 import java.util.List;
 
 public interface XuanjianghuiService {
-    public List<Xuanjianghui> findAllXjhByPage(int pageIndex);
+    List<Xuanjianghui> findAllXjhByPage(int pageIndex);
 
-    public Xuanjianghui findXjhById(int xuanjiangId);
+    Xuanjianghui findXjhById(int xuanjiangId);
 
-    public int postXuanjianghui(Xuanjianghui xjh);
+    int postXuanjianghui(Xuanjianghui xjh);
 
-    public int deleteXuan(int xuanjiangId);
+    int deleteXuan(int xuanjiangId);
 }

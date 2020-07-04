@@ -13,11 +13,11 @@ public interface IApplicationDao {
     //获取应聘信息
     @Select("select a.*,e.jobPostion,t.stuName from application as a left join school_em as e on a.employId=e.employId " +
             "left join student as t on a.opendid=t.opendid where status=#{status} limit #{startIndex},14")
-    public List<ApplyDetail> findApplicationByStatus(@Param("status") String status, @Param("startIndex") int startIndex);
+    List<ApplyDetail> findApplicationByStatus(@Param("status") String status, @Param("startIndex") int startIndex);
 
     //处理应聘
     @Update("update application set status=#{status} where applyId=#{applyId}")
-    public int ApplyManager(@Param("status") String status,@Param("applyId") int applyId);
+    int ApplyManager(@Param("status") String status,@Param("applyId") int applyId);
 
 
 

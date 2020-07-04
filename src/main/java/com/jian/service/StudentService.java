@@ -5,22 +5,22 @@ import org.apache.ibatis.annotations.Param;
 
 public interface StudentService {
     //学生登录
-    public Student stuLogin(Student stu);
+    Student stuLogin(Student stu);
 
 
-    public boolean isOpenIdExsit(String openid);
+    boolean isOpenIdExsit(String openid);
 
     //插入Openid
-    public int addStudentOpenid(String openid, String stuAccount);
+    int addStudentOpenid(String openid, String stuAccount);
 
-    public Student findStudentByOpendid(String opendid);
+    Student findStudentByOpendid(String opendid);
 
-    public StuEduXp findEduXpById( int eduId);
+    StuEduXp findEduXpById( int eduId);
 
-    public StuItershipXp findItershipXpById(int intsId);
+    StuItershipXp findItershipXpById(int intsId);
 
-    public StuSchoolXp findSchoolXpById(int school_xpId);
+    StuSchoolXp findSchoolXpById(int school_xpId);
 
-    public StuProjectXp findProjectXpById(int proId);
+    StuProjectXp findProjectXpById(int proId);
 
 }

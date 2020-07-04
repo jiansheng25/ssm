@@ -8,15 +8,15 @@ import com.jian.pojo.Xueyuan;
 import java.util.List;
 
 public interface SchoolService {
-    public School schoolLogin(School sc);
+    School schoolLogin(School sc);
 
-    public List<Student> findAllStudent(Integer pageIndex);
+    List<Student> findAllStudent(Integer pageIndex);
 
-    public List<Xueyuan> findAllXueyuan();
+    List<Xueyuan> findAllXueyuan();
 
-    public List<Student> findStudentByXyId(Integer xyId,Integer pageIndex);
+    List<Student> findStudentByXyId(Integer xyId,Integer pageIndex);
 
-    public List<Class> findClassByXyId(Integer xyId);
+    List<Class> findClassByXyId(Integer xyId);
 
-    public List<Student> findStudentByClass(Integer pageIndex,String stuClass);
+    List<Student> findStudentByClass(Integer pageIndex,String stuClass);
 }

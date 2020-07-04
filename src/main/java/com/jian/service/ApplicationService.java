@@ -6,7 +6,7 @@ import com.jian.pojo.ApplyDetail;
 import java.util.List;
 
 public interface ApplicationService {
-    public List<ApplyDetail> findApplicationByStatus(String status,int pageIndex);
+    List<ApplyDetail> findApplicationByStatus(String status,int pageIndex);
 
-    public int ApplyManager(String status,int applyId);
+    int ApplyManager(String status,int applyId);
 }

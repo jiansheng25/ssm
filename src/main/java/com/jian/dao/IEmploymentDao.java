@@ -16,7 +16,7 @@ public interface IEmploymentDao {
      */
     @Select("select * from employment as c left join company as e on c.account=e.account where workPlace like " +
             "concat('%',#{workPlace},'%') order by postTime desc limit #{startIndex},9")
-    public List<EmployCompany> findAllEmployBypageAndCity(@Param("workPlace") String workPlace, @Param("startIndex") int startIndex);
+    List<EmployCompany> findAllEmployBypageAndCity(@Param("workPlace") String workPlace, @Param("startIndex") int startIndex);
 
     /**
      * 模糊查询职位
@@ -26,7 +26,7 @@ public interface IEmploymentDao {
      */
     @Select("select * from employment as c left join company as e on c.account=e.account where (name like concat('%',#{name},'%') or" +
             "  jobPostion like concat('%',#{name},'%')) and workPlace like concat('%',#{workPlace},'%') order by postTime desc")
-    public List<EmployCompany> findPostionByName(@Param("name") String name,@Param("workPlace") String workPlace);
+    List<EmployCompany> findPostionByName(@Param("name") String name,@Param("workPlace") String workPlace);
 
     /**
      * 按城市查询职位
@@ -35,7 +35,7 @@ public interface IEmploymentDao {
      */
     @Select("select * from employment as c left join company as e on c.account=e.account where workPlace like " +
             "concat('%',#{workPlace},'%') order by postTime desc")
-    public List<EmployCompany> findAllPostionByCity(@Param("workPlace") String workPlace);
+    List<EmployCompany> findAllPostionByCity(@Param("workPlace") String workPlace);
 
     /**
      * 按Id查询职位
@@ -43,7 +43,7 @@ public interface IEmploymentDao {
      * @return
      */
     @Select("select * from employment as c left join company as e on c.account=e.account where employId=#{employId}")
-    public EmployCompany findPostionById(int employId);
+    EmployCompany findPostionById(int employId);
 
     /**
      * 查找某企业的全部职位
@@ -51,7 +51,7 @@ public interface IEmploymentDao {
      * @return
      */
     @Select("select * from employment as c left join company as e on c.account=e.account where e.account=#{account} order by postTime desc")
-    public List<EmployCompany> findPostionByCompany(String account);
+    List<EmployCompany> findPostionByCompany(String account);
 
     //查找各个状态已申请职位
     @Select("select * from application where opendid=#{opendid} and status=#{status}")
@@ -60,37 +60,37 @@ public interface IEmploymentDao {
             @Result(property = "employment",column = "employId",one = @One(select =
                     "com.jian.dao.IEmploymentDao.findEmpById"))
     })
-    public List<Application> findAppliedPostion(@Param("opendid") String opendid, @Param("status") String status);
+    List<Application> findAppliedPostion(@Param("opendid") String opendid, @Param("status") String status);
 
     //按Id查找职位
     @Select("select * from employment where employId=#{employId}")
-    public Employment findEmpById(int employId);
+    Employment findEmpById(int employId);
 
     //获取已收藏的职位
     @Select("select * from perfer where opendid=#{opendid}")
     @ResultMap(value = "employMap")
-    public List<Perfer> findCollectedPostionByOpenid(String opendid);
+    List<Perfer> findCollectedPostionByOpenid(String opendid);
 
     //判断是否已收藏过该职位
     @Select("select count(*) from perfer where opendid=#{opendid} and employId=#{employId}")
-    public int isCollected(@Param("opendid") String opendid,@Param("employId") int employId);
+    int isCollected(@Param("opendid") String opendid,@Param("employId") int employId);
 
     //收藏职位
     @Insert("insert into perfer (opendid,employId,perferTime) values (#{opendid},#{employId},#{perferTime})")
-    public int collectPostion(@Param("opendid") String opendid, @Param("employId") int employId,
+    int collectPostion(@Param("opendid") String opendid, @Param("employId") int employId,
                               @Param("perferTime")Timestamp perferTime);
 
     //取消收藏职位
     @Delete("delete from perfer where opendid=#{opendid} and employId=#{employId}")
-    public int deleteCollection(@Param("opendid") String opendid,@Param("employId") int employId);
+    int deleteCollection(@Param("opendid") String opendid,@Param("employId") int employId);
 
     //判断是否已申请该职位
     @Select("select count(*) from application where opendid=#{opendid} and employId=#{employId}")
-    public int isApply(@Param("opendid") String opendid,@Param("employId") int employId);
+    int isApply(@Param("opendid") String opendid,@Param("employId") int employId);
 
     //申请职位
     @Insert("insert into application (opendid,employId,applyTime) values (#{opendid},#{employId},#{applyTime})")
-    public int applyPostion(@Param("opendid") String opendid, @Param("employId") int employId,
+    int applyPostion(@Param("opendid") String opendid, @Param("employId") int employId,
                               @Param("applyTime")Timestamp applyTime);
 
     /**
@@ -98,5 +98,5 @@ public interface IEmploymentDao {
      * @return
      */
     @Select("select * from school_em order by postTime desc limit #{startIndex},13")
-    public List<SchoolEm> findEmpOfSchool(@Param("startIndex") Integer startIndex);
+    List<SchoolEm> findEmpOfSchool(@Param("startIndex") Integer startIndex);
 }
